@@ -1,0 +1,16 @@
+# folders
+.idea
+.temp*
+.vscode
+builds
+data-local
+node_modules
+target
+test-results
+
+# files
+.iml
+package-lock.json
+
+# exclude
+!.vscode/launch.json
