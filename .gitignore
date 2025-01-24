@@ -14,3 +14,23 @@ package-lock.json
 
 # exclude
 !.vscode/launch.json
+
+###
+# Unity folders and files
+###
+/[Aa]ssets/AssetStoreTools*
+/[Aa]ssets/Resources
+/[Aa]ssets/SceneDependencyCache/
+/[Aa]ssets/Sketchfab For Unity/
+/[Aa]ssets/Sketchfab For Unity.meta
+/[Aa]ssets/Editor/Sweeper/
+/[Aa]ssets/Editor/Sweeper.meta
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Ll]ibrary/
+/[Ll]ocal[Cc]ache/
+/[Oo]bj/
+/[Tt]emp/
+/[Uu]nityGenerated/
+/[Uu]ser[Ss]ettings/
