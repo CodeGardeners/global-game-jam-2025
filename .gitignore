@@ -34,3 +34,7 @@ package-lock.json
 [Tt]emp/
 [Uu]nityGenerated/
 [Uu]ser[Ss]ettings/
+
+*.csproj
+*.unityproj
+*.sln
