@@ -4,26 +4,46 @@ using UnityEngine.InputSystem;
 
 public class CameraMovement : MonoBehaviour
 {
-    public void OnEnable()
+    [SerializeField]
+    private float speed = 0.001f;
+
+    private InputAction move;
+    private InputAction moveUpDown;
+
+    public void Awake()
     {
-        Inputs.Instance.Actions.Player.MoveCamera.performed += MoveCamera;
-        Inputs.Instance.Actions.Player.MoveCameraUpDown.performed += MoveCameraUpDown;
-    }
-    public void OnDisable()
-    {
-        Inputs.Instance.Actions.Player.MoveCamera.performed -= MoveCamera;
-        Inputs.Instance.Actions.Player.MoveCameraUpDown.performed -= MoveCameraUpDown;
+        move = Inputs.Instance.Actions.Player.MoveCamera;
+        moveUpDown = Inputs.Instance.Actions.Player.MoveCameraUpDown;
     }
 
-    private void MoveCamera(InputAction.CallbackContext context)
+    public void Update()
     {
-        var value = context.ReadValue<Vector2>();
-        Debug.Log(value);
+        MoveCamera();
+        MoveCameraUpDown();
     }
 
-    private void MoveCameraUpDown(InputAction.CallbackContext context)
+    private void MoveCamera()
     {
-        var value = context.ReadValue<Vector2>();
-        Debug.Log(value);
+        if (!move.IsPressed())
+        {
+            return;
+        }
+        var value = move.ReadValue<Vector2>();
+        var pos = transform.position;
+        pos.x += value.x * speed;
+        pos.z += value.y * speed;
+        transform.position = pos;
+    }
+
+    private void MoveCameraUpDown()
+    {
+        if (!moveUpDown.IsPressed())
+        {
+            return;
+        }
+        var value = moveUpDown.ReadValue<Vector2>();
+        var pos = transform.position;
+        pos.y += value.y * speed;
+        transform.position = pos;
     }
 }
