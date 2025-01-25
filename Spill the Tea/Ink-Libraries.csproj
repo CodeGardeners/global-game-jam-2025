@@ -65,8 +65,8 @@
     <Analyzer Include="/Applications/Unity/Hub/Editor/6000.0.34f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets/Ink/InkLibs/InkCompiler/InkStringConversionExtensions.cs" />
     <Compile Include="Assets/Ink/InkLibs/InkRuntime/InkList.cs" />
+    <Compile Include="Assets/Ink/InkLibs/InkCompiler/InkStringConversionExtensions.cs" />
     <Compile Include="Assets/Ink/InkLibs/InkCompiler/InkParser/InkParser_Choices.cs" />
     <Compile Include="Assets/Ink/InkLibs/InkCompiler/ParsedHierarchy/Stitch.cs" />
     <Compile Include="Assets/Ink/InkLibs/InkRuntime/Tag.cs" />

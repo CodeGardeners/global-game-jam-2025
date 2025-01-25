@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using Ink.Runtime;
+using UnityEngine.InputSystem;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class DialogueManager : MonoBehaviour
         // Check that only 1 instance is in the scene
         if (instance != null)
         {
-            Debug.LogWarning("More than once Dialogue Manager in Scene!");
+            Debug.LogWarning("More than one Dialogue Manager in Scene!");
         }
         instance = this;
     }
@@ -35,7 +36,16 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-        
+        if (!dialogueIsPlaying) // Return if the dialogue is not playing
+        {
+            return;
+        }
+
+        // TODO Handle forwarding the story:
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            ContinueStory();
+        }
     }
 
     public void EnterDialoguemode(TextAsset inkJSON)
@@ -44,6 +54,18 @@ public class DialogueManager : MonoBehaviour
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
 
+        ContinueStory();
+    }
+
+    private void ExitDialogueMode()
+    {
+        dialogueIsPlaying = false;
+        dialoguePanel.SetActive(false);
+        dialogueText.text = "";
+    }
+
+    private void ContinueStory()
+    {
         if (currentStory.canContinue)
         {
             dialogueText.text = currentStory.Continue();
@@ -52,12 +74,5 @@ public class DialogueManager : MonoBehaviour
         {
             ExitDialogueMode();
         }
-    }
-
-    private void ExitDialogueMode()
-    {
-        dialogueIsPlaying = false;
-        dialoguePanel.SetActive(false);
-        dialogueText.text = "";
     }
 }
