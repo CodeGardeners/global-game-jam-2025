@@ -21,6 +21,11 @@ public class GameManager : MonoBehaviour
 
     private List<Character> characters;
 
+    public static Color[] getColors()
+    {
+        return COLORS;
+    }
+
     public void Awake()
     {
         characters = new List<Character>();
