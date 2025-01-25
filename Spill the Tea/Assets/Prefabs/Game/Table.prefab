@@ -105,6 +105,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f21aeeebb6baf84ea0714e8ee24ce12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chairs:
+  - {fileID: 4406406693433894028}
+  - {fileID: 7240838131733278591}
+  - {fileID: 3201316185540616826}
+  - {fileID: 7932981945921646597}
 --- !u!208 &781098314205445075
 NavMeshObstacle:
   m_ObjectHideFlags: 0

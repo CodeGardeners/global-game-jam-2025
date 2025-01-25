@@ -3,12 +3,12 @@ using UnityEngine;
 public class CharacterSpawner : MonoBehaviour
 {
     [SerializeField]
-    private GameObject characterPrefab;
+    private Character characterPrefab;
     
     [SerializeField]
     private Transform spawnPoint;
 
-    public GameObject SpawnNew(){
+    public Character SpawnNew(){
         var go = Instantiate(characterPrefab);
         go.transform.position = spawnPoint.position;
         return go;
