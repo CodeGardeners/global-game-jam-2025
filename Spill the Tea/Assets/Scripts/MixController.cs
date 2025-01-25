@@ -16,13 +16,6 @@ namespace Audio
         [SerializeField] private CameraMovement _cameraMovement;
         private float _cameraHeight;
         
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-
-        private void Awake()
-        {
-            
-        }
-
         void Start()
         {
             Camera camera =Camera.main;
@@ -30,7 +23,6 @@ namespace Audio
             audioMixer.SetFloat(masterVolumeParamName, -80.0f);
             float vol;
             audioMixer.GetFloat(masterVolumeParamName, out vol);
-            //Debug.Log(vol);
             
             StartCoroutine(FadeMixerGroup.StartFade(audioMixer, masterVolumeParamName, masterFadeInLengthOnStart, masterVolume));
         }
@@ -70,7 +62,6 @@ namespace Audio
                 audioMixer,
                 charactersVolumeParamName,
                 charsNewVol);
-            Debug.Log($"charVol: {charsNewVol}");
         }
     }
 

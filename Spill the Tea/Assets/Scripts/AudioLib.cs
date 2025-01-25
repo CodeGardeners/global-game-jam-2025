@@ -50,7 +50,6 @@ namespace Audio
             audioMixer.SetFloat(exposedParam, Mathf.Log10(setVol) * 20);
             float debugVol = 666;
             audioMixer.GetFloat(exposedParam, out debugVol);
-            Debug.Log(debugVol);
         }
         
         public static void SetGroupVol2(AudioMixer audioMixer, string exposedParam, float value)
@@ -59,7 +58,6 @@ namespace Audio
             audioMixer.SetFloat(exposedParam, Mathf.Log10(value) * 20);
             float debugVol = 666;
             audioMixer.GetFloat(exposedParam, out debugVol);
-            Debug.Log(debugVol);
         }
     }
     
