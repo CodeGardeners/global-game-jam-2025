@@ -15,9 +15,10 @@ public class CharacterSpawner : MonoBehaviour
 
     public void Awake(){
         System.Random random = new();
-        foreach (Transform child in transform)
+        var shuffle = Enumerable.Range(0,transform.childCount).OrderBy(x => random.Next());
+        foreach (int i in shuffle)
         {
-            var character = child.GetComponent<Character>();
+            var character = transform.GetChild(i).GetComponent<Character>();
             remainingCharacters.Enqueue(character);
         }
     }
