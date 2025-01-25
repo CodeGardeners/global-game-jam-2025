@@ -19,12 +19,13 @@ public class Table : MonoBehaviour
         seatedCharacters = new Dictionary<Character, Chair>();
     }
 
-    public void SeatCharacter(Character character)
+    public bool SeatCharacter(Character character)
     {
         var chair = GetNextAvailableChair();
         seatedCharacters.Add(character, chair);
         chair.DisableObstacle();
         character.SetTarget(chair.transform.position, Character.CharacterState.ToTable, CheckMusic);
+        return seatedCharacters.Count == chairs.Count;
     }
 
     public void UnseatCharacter(Character character)
