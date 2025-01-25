@@ -15,7 +15,6 @@ public class Character : MonoBehaviour, IPointerClickHandler
     }
 
     private NavMeshAgent navAgent;
-    private Action<Character> toCounter;
     private Action navigationEnded;
     private CharacterState characterState;
     private bool isNavigating;
@@ -58,11 +57,6 @@ public class Character : MonoBehaviour, IPointerClickHandler
         Track = track;
     }
 
-    public void SetToCounterAction(Action<Character> toCounter)
-    {
-        this.toCounter = toCounter;
-    }
-
     public void SetTarget(Vector3 target, CharacterState characterState, Action navigationEnded = null)
     {
         this.characterState = characterState;
@@ -78,6 +72,7 @@ public class Character : MonoBehaviour, IPointerClickHandler
         {
             return;
         }
-        toCounter(this);
+
+        GameManager.Instance.ToCounter(this);
     }
 }

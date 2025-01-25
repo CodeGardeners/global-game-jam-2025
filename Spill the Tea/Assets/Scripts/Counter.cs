@@ -38,10 +38,6 @@ public class Counter : MonoBehaviour
         }
     }
 
-    public void SetToTableAction(Action<Character, int> toTable){
-        this.toTable = toTable;
-    }
-
     public void AddCharacter(Character character){
         character.SetTarget(counterPosition.position + waitingCharacters.Count * offset, Character.CharacterState.ToCounter, waitingCharacters.Count == 0? CounterReached : null);
         waitingCharacters.Enqueue(character);
@@ -50,7 +46,7 @@ public class Counter : MonoBehaviour
     public void OnClick(int num)
     {
         ui.SetActive(false);
-        toTable(waitingCharacters.Dequeue(), num);
+        GameManager.Instance.ToTable(waitingCharacters.Dequeue(), num);
 
         if(waitingCharacters.Count != 0){
             ResetPosition();

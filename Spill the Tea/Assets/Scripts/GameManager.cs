@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
     public static readonly Color[] Colors = {
         Color.red,
         Color.green,
@@ -23,24 +24,33 @@ public class GameManager : MonoBehaviour
 
     public void Awake()
     {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
         characters = new Dictionary<Character, Table>();
     }
 
     public void Start()
     {
-        counter.SetToTableAction(ToTable);
         for (int i = 0; i < tables.Count; i++)
         {
             tables[i].SetColor(Colors[i]);
         }
     }
 
-    public void Update(){
-        if(characters.Count >= 16){
+    public void Update()
+    {
+        if (characters.Count >= 16)
+        {
             return;
         }
 
-        if(counter.GetWaitingCount == 0){
+        if (counter.GetWaitingCount == 0)
+        {
             AddCharacter();
         }
     }
@@ -48,12 +58,11 @@ public class GameManager : MonoBehaviour
     public void AddCharacter()
     {
         var character = characterSpawner.SpawnNew();
-        character.SetToCounterAction(ToCounter);
         characters.Add(character, null);
         counter.AddCharacter(character);
     }
 
-    private void ToCounter(Character character)
+    public void ToCounter(Character character)
     {
         var table = characters[character];
         characters[character] = null;
@@ -61,7 +70,7 @@ public class GameManager : MonoBehaviour
         counter.AddCharacter(character);
     }
 
-    private void ToTable(Character character, int i)
+    public void ToTable(Character character, int i)
     {
         var table = tables[i];
         table.SeatCharacter(character);
