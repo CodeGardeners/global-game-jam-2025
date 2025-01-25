@@ -25,7 +25,8 @@ public class Counter : MonoBehaviour
 
     public int GetWaitingCount => waitingCharacters.Count;
 
-    public void Awake(){
+    public void Awake()
+    {
         waitingCharacters = new Queue<Character>();
     }
 
@@ -42,6 +43,12 @@ public class Counter : MonoBehaviour
         }
     }
 
+    public void AddCharacter(Character character)
+    {
+        character.SetTarget(counterPosition.position + waitingCharacters.Count * offset, Character.CharacterState.ToCounter, waitingCharacters.Count == 0 ? CounterReached : null);
+        waitingCharacters.Enqueue(character);
+    }
+    
     void Update()
     {
         if (counterToDialogue.GetDialogueFinished())
@@ -54,28 +61,34 @@ public class Counter : MonoBehaviour
             ui.SetActive(false);
         }
     }
-
-    public void AddCharacter(Character character){
-        character.SetTarget(counterPosition.position + waitingCharacters.Count * offset, Character.CharacterState.ToCounter, waitingCharacters.Count == 0? CounterReached : null);
-        waitingCharacters.Enqueue(character);
-    }
-
     public void OnClick(int num)
     {
         ui.SetActive(false);
         counterToDialogue.ResetDialogue(); // Resets Dialogue when 
         GameManager.Instance.ToTable(waitingCharacters.Dequeue(), num);
 
-        if(waitingCharacters.Count != 0){
+        if (waitingCharacters.Count != 0)
+        {
             ResetPosition();
         }
     }
 
-    private void ResetPosition(){
+    public void EnableButton(int i)
+    {
+        buttons[i].enabled = true;
+    }
+
+    public void DisableButton(int i)
+    {
+        buttons[i].enabled = false;
+    }
+
+    private void ResetPosition()
+    {
         var array = waitingCharacters.ToArray();
-        for (int i = array.Length-1; i >= 0; i--)
+        for (int i = array.Length - 1; i >= 0; i--)
         {
-            array[i].SetTarget(counterPosition.position + i * offset, Character.CharacterState.ToCounter, i == 0? CounterReached : null);
+            array[i].SetTarget(counterPosition.position + i * offset, Character.CharacterState.ToCounter, i == 0 ? CounterReached : null);
         }
     }
 

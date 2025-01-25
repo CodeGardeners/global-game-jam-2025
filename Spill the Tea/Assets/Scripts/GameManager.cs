@@ -68,12 +68,15 @@ public class GameManager : MonoBehaviour
         characters[character] = null;
         table.UnseatCharacter(character);
         counter.AddCharacter(character);
+        counter.EnableButton(tables.IndexOf(table));
     }
 
     public void ToTable(Character character, int i)
     {
         var table = tables[i];
-        table.SeatCharacter(character);
+        if(table.SeatCharacter(character)){
+            counter.DisableButton(i);
+        }
         characters[character] = table;
     }
 }
