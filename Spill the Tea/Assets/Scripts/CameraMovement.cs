@@ -32,7 +32,7 @@ public class CameraMovement : MonoBehaviour
         pos.x += value.x * speed;
         pos.x = Math.Clamp(pos.x, -4f, 4.5f);
         pos.z += value.y * speed;
-        pos.z = Math.Clamp(pos.z, -5f, 1f);
+        pos.z = Math.Clamp(pos.z, -5f, 2f);
         transform.position = pos;
     }
 
@@ -45,7 +45,7 @@ public class CameraMovement : MonoBehaviour
         var value = moveUpDown.ReadValue<Vector2>();
         var pos = transform.position;
         pos.y += value.y * speed;
-        pos.y = Math.Clamp(pos.y, 1f, 4f);
+        pos.y = Math.Clamp(pos.y, 1f, 5f);
         transform.position = pos;
     }
 }
