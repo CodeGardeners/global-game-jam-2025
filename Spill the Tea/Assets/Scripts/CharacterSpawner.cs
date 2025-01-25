@@ -16,9 +16,9 @@ public class CharacterSpawner : MonoBehaviour
     private List<int> remainingCharacters;
 
     public void Awake(){
-        remainingCharacters = Enumerable.Range(0, 16).ToList();
-        System.Random random = new System.Random();
-        remainingCharacters = remainingCharacters.OrderBy(x => random.Next()).ToList();
+        var range = Enumerable.Range(0, 16);
+        System.Random random = new();
+        remainingCharacters = range.OrderBy(x => random.Next()).ToList();
     }
 
     public Character SpawnNew(){
