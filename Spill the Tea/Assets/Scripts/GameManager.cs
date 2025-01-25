@@ -9,12 +9,17 @@ public class GameManager : MonoBehaviour
     private Counter counter;
 
     [SerializeField]
+    private GameObject endScreen;
+
+    [SerializeField]
     private List<Table> tables;
 
     [SerializeField]
     private CharacterSpawner characterSpawner;
 
     private Dictionary<Character, Table> characters;
+
+    private int LockedTables = 0;
 
     public void Awake()
     {
@@ -69,5 +74,13 @@ public class GameManager : MonoBehaviour
             counter.DisableButton(i);
         }
         characters[character] = table;
+    }
+
+    public void addLockedTable(){
+        LockedTables++;
+        if(LockedTables == tables.Count){
+            Debug.Log("All tables are locked, calling end screen");
+            endScreen.SetActive(true);
+        }
     }
 }
