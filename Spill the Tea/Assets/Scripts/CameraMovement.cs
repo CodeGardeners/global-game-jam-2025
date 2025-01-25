@@ -5,8 +5,8 @@ using UnityEngine.InputSystem;
 public class CameraMovement : MonoBehaviour
 {
     private const float speed = 0.01f;
-    private const float heightMin = 1;
-    private const float heightMax = 5;
+    [SerializeField] private float heightMin = 1.7f;
+    [SerializeField] private float heightMax = 5.0f;
 
     private InputAction move;
     private InputAction moveUpDown;
