@@ -878,6 +878,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1360932294}
     m_Modifications:
+    - target: {fileID: -2274221999122097322, guid: 9de8e791bb432d94f8820d445e4ef058, type: 3}
+      propertyPath: inkDialogue
+      value: 
+      objectReference: {fileID: 4900000, guid: 11aff331f7cdd4258b59b78d0bc7d4bf, type: 3}
     - target: {fileID: 1341620497146868286, guid: 9de8e791bb432d94f8820d445e4ef058, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1395,6 +1399,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1360932294}
     m_Modifications:
+    - target: {fileID: -2274221999122097322, guid: 9de8e791bb432d94f8820d445e4ef058, type: 3}
+      propertyPath: inkDialogue
+      value: 
+      objectReference: {fileID: 4900000, guid: d2a23971d014b4de3a7b73f5e71aa303, type: 3}
     - target: {fileID: 1341620497146868286, guid: 9de8e791bb432d94f8820d445e4ef058, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1874,6 +1882,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1360932294}
     m_Modifications:
+    - target: {fileID: -2274221999122097322, guid: 9de8e791bb432d94f8820d445e4ef058, type: 3}
+      propertyPath: inkJSON
+      value: 
+      objectReference: {fileID: 4900000, guid: 53a46b5f3815b42ae90f820cbea61e24, type: 3}
+    - target: {fileID: -2274221999122097322, guid: 9de8e791bb432d94f8820d445e4ef058, type: 3}
+      propertyPath: inkDialogue
+      value: 
+      objectReference: {fileID: 4900000, guid: e4a1ce633a03e4d62a9ad85aa0682777, type: 3}
     - target: {fileID: 1341620497146868286, guid: 9de8e791bb432d94f8820d445e4ef058, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2055,6 +2071,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1360932294}
     m_Modifications:
+    - target: {fileID: -2274221999122097322, guid: 9de8e791bb432d94f8820d445e4ef058, type: 3}
+      propertyPath: inkDialogue
+      value: 
+      objectReference: {fileID: 4900000, guid: fcadbb539c13942c39cf45d7ab533866, type: 3}
     - target: {fileID: 1341620497146868286, guid: 9de8e791bb432d94f8820d445e4ef058, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2377,6 +2397,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1360932294}
     m_Modifications:
+    - target: {fileID: -2274221999122097322, guid: 9de8e791bb432d94f8820d445e4ef058, type: 3}
+      propertyPath: inkDialogue
+      value: 
+      objectReference: {fileID: 4900000, guid: 19415dd95b628409fb7d17461ca5a7af, type: 3}
     - target: {fileID: 1341620497146868286, guid: 9de8e791bb432d94f8820d445e4ef058, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2588,6 +2612,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1360932294}
     m_Modifications:
+    - target: {fileID: -2274221999122097322, guid: 9de8e791bb432d94f8820d445e4ef058, type: 3}
+      propertyPath: inkDialogue
+      value: 
+      objectReference: {fileID: 4900000, guid: 6fce210ca916e45f58378b07551ff9ab, type: 3}
     - target: {fileID: 1341620497146868286, guid: 9de8e791bb432d94f8820d445e4ef058, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2771,7 +2799,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialoguePanel: {fileID: 1575142764}
   dialogueText: {fileID: 421984995}
-  choices: []
 --- !u!4 &1340468541
 Transform:
   m_ObjectHideFlags: 0
@@ -2922,6 +2949,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1360932294}
     m_Modifications:
+    - target: {fileID: -2274221999122097322, guid: 9de8e791bb432d94f8820d445e4ef058, type: 3}
+      propertyPath: inkDialogue
+      value: 
+      objectReference: {fileID: 4900000, guid: 0f17c3fe6844a45cba01ab2824cc1c5f, type: 3}
     - target: {fileID: 1341620497146868286, guid: 9de8e791bb432d94f8820d445e4ef058, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2987,6 +3018,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1360932294}
     m_Modifications:
+    - target: {fileID: -2274221999122097322, guid: 9de8e791bb432d94f8820d445e4ef058, type: 3}
+      propertyPath: inkDialogue
+      value: 
+      objectReference: {fileID: 4900000, guid: 7c6ad5412f85a4b7a962c3c8bb0a6ede, type: 3}
     - target: {fileID: 1341620497146868286, guid: 9de8e791bb432d94f8820d445e4ef058, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3067,6 +3102,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1360932294}
     m_Modifications:
+    - target: {fileID: -2274221999122097322, guid: 9de8e791bb432d94f8820d445e4ef058, type: 3}
+      propertyPath: inkDialogue
+      value: 
+      objectReference: {fileID: 4900000, guid: 39e8ce92edf9a4e2eb475c76f3925437, type: 3}
     - target: {fileID: 1341620497146868286, guid: 9de8e791bb432d94f8820d445e4ef058, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3275,6 +3314,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1360932294}
     m_Modifications:
+    - target: {fileID: -2274221999122097322, guid: 9de8e791bb432d94f8820d445e4ef058, type: 3}
+      propertyPath: inkDialogue
+      value: 
+      objectReference: {fileID: 4900000, guid: 4a238ade18d504c7b9e7f00498f8dd9a, type: 3}
     - target: {fileID: 1341620497146868286, guid: 9de8e791bb432d94f8820d445e4ef058, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3560,6 +3603,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1360932294}
     m_Modifications:
+    - target: {fileID: -2274221999122097322, guid: 9de8e791bb432d94f8820d445e4ef058, type: 3}
+      propertyPath: inkDialogue
+      value: 
+      objectReference: {fileID: 4900000, guid: 646a675c102e14ce49ce9e568538fbfc, type: 3}
     - target: {fileID: 1341620497146868286, guid: 9de8e791bb432d94f8820d445e4ef058, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3722,6 +3769,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1360932294}
     m_Modifications:
+    - target: {fileID: -2274221999122097322, guid: 9de8e791bb432d94f8820d445e4ef058, type: 3}
+      propertyPath: inkDialogue
+      value: 
+      objectReference: {fileID: 4900000, guid: a11954322f1c9446292b7f398e6b6953, type: 3}
     - target: {fileID: 1341620497146868286, guid: 9de8e791bb432d94f8820d445e4ef058, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3838,6 +3889,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1360932294}
     m_Modifications:
+    - target: {fileID: -2274221999122097322, guid: 9de8e791bb432d94f8820d445e4ef058, type: 3}
+      propertyPath: inkDialogue
+      value: 
+      objectReference: {fileID: 4900000, guid: 3e0b278db74e6481d8c57101f140ef52, type: 3}
     - target: {fileID: 1341620497146868286, guid: 9de8e791bb432d94f8820d445e4ef058, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4315,6 +4370,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1360932294}
     m_Modifications:
+    - target: {fileID: -2274221999122097322, guid: 9de8e791bb432d94f8820d445e4ef058, type: 3}
+      propertyPath: inkDialogue
+      value: 
+      objectReference: {fileID: 4900000, guid: 775c5bf806b704c8caa7f8207e02f712, type: 3}
     - target: {fileID: 1341620497146868286, guid: 9de8e791bb432d94f8820d445e4ef058, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4531,6 +4590,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1360932294}
     m_Modifications:
+    - target: {fileID: -2274221999122097322, guid: 9de8e791bb432d94f8820d445e4ef058, type: 3}
+      propertyPath: inkDialogue
+      value: 
+      objectReference: {fileID: 4900000, guid: fbbd5018403d2413fbb235dd1f28dbce, type: 3}
     - target: {fileID: 1341620497146868286, guid: 9de8e791bb432d94f8820d445e4ef058, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4606,6 +4669,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1360932294}
     m_Modifications:
+    - target: {fileID: -2274221999122097322, guid: 9de8e791bb432d94f8820d445e4ef058, type: 3}
+      propertyPath: inkDialogue
+      value: 
+      objectReference: {fileID: 4900000, guid: cecc6e1f499674c84b92c6a5660f1ee1, type: 3}
     - target: {fileID: 1341620497146868286, guid: 9de8e791bb432d94f8820d445e4ef058, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

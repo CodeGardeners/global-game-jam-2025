@@ -43,7 +43,7 @@ public class Table : MonoBehaviour
         }
     }
 
-    private void CheckMusic()
+    private void CheckMusic(Character character)
     {
         if (seatedCharacters.Count != chairs.Count)
         {
@@ -51,9 +51,9 @@ public class Table : MonoBehaviour
         }
 
         var title = seatedCharacters.Keys.First().Title;
-        foreach (var character in seatedCharacters.Keys)
+        foreach (var seated in seatedCharacters.Keys)
         {
-            if (character.Title != title)
+            if (seated.Title != title)
             {
                 return;
             }

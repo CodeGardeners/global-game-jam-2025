@@ -16,14 +16,15 @@ public class Character : MonoBehaviour, IPointerClickHandler
     }
 
     private NavMeshAgent navAgent;
-    private Action navigationEnded;
+    private Action<Character> navigationEnded;
     private CharacterState characterState;
     private bool isNavigating;
 
-    [SerializeField]
-    public int Title { get; private set; }
-    [SerializeField]
-    public int Track { get; private set; }
+
+    public int Title;
+    public int Track;
+
+    public TextAsset inkDialogue;
 
     public void Awake()
     {
@@ -47,13 +48,13 @@ public class Character : MonoBehaviour, IPointerClickHandler
                         characterState = CharacterState.Table;
                     }
                     isNavigating = false;
-                    navigationEnded?.Invoke();
+                    navigationEnded?.Invoke(this);
                 }
             }
         }
     }
 
-    public void SetTarget(Vector3 target, CharacterState characterState, Action navigationEnded = null)
+    public void SetTarget(Vector3 target, CharacterState characterState, Action<Character> navigationEnded = null)
     {
         this.characterState = characterState;
         this.navigationEnded = navigationEnded;
