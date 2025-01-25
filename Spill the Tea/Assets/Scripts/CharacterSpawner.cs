@@ -11,22 +11,23 @@ public class CharacterSpawner : MonoBehaviour
     [SerializeField]
     private Transform spawnPoint;
 
-    private List<int> remainingCharacters;
+    private Queue<Character> remainingCharacters = new();
 
     public void Awake(){
-        var range = Enumerable.Range(0, 16);
         System.Random random = new();
-        remainingCharacters = range.OrderBy(x => random.Next()).ToList();
+        foreach (Transform child in transform)
+        {
+            var character = child.GetComponent<Character>();
+            remainingCharacters.Enqueue(character);
+        }
     }
 
     public Character SpawnNew(){
-        var go = Instantiate(characterPrefab);
-        go.transform.position = spawnPoint.position;
-        int character = remainingCharacters.First();
-        remainingCharacters.RemoveAt(0);
-        int title = character / 4;
-        int track = character % 4;
-        go.SetIdentity(title, track);
-        return go;
+        if (remainingCharacters.Count == 0){
+            return null;
+        }
+        Character character = remainingCharacters.Dequeue();
+        character.gameObject.SetActive(true);
+        return character;
     }
 }
