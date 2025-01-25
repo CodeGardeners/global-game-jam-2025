@@ -11,20 +11,26 @@ public class Table : MonoBehaviour
 
     private new Renderer renderer;
 
-    private Dictionary<Chair, Character> seatedCharacters;
+    private Dictionary<Character, Chair> seatedCharacters;
 
     public void Awake()
     {
         renderer = GetComponent<Renderer>();
-        seatedCharacters = new Dictionary<Chair, Character>();
+        seatedCharacters = new Dictionary<Character, Chair>();
     }
 
-    public Transform SeatCharacter(Character character)
+    public void SeatCharacter(Character character)
     {
         var chair = GetNextAvailableChair();
-        seatedCharacters.Add(chair, character);
+        seatedCharacters.Add(character, chair);
         chair.DisableObstacle();
-        return chair.transform;
+        character.SetTarget(chair.transform.position, Character.CharacterState.ToTable);
+    }
+
+    public void UnseatCharacter(Character character)
+    {
+        seatedCharacters[character].EnableObstacle();
+        seatedCharacters.Remove(character);
     }
 
     public void SetColor(Color color)
@@ -38,6 +44,6 @@ public class Table : MonoBehaviour
 
     private Chair GetNextAvailableChair()
     {
-        return chairs.Where(x => !seatedCharacters.Keys.Contains(x)).FirstOrDefault();
+        return chairs.Where(x => !seatedCharacters.Values.Contains(x)).FirstOrDefault();
     }
 }

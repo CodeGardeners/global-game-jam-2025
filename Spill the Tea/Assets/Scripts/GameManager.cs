@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,40 +21,57 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private CharacterSpawner characterSpawner;
 
-    private List<Character> characters;
+    private Dictionary<Character, Table> characters;
 
-    public static Color[] getColors()
+    public static Color[] GetColors()
     {
         return COLORS;
     }
 
     public void Awake()
     {
-        characters = new List<Character>();
+        characters = new Dictionary<Character, Table>();
     }
 
     public void Start()
     {
+        counter.SetToTableAction(ToTable);
         for (int i = 0; i < tables.Count; i++)
         {
             tables[i].SetColor(COLORS[i]);
         }
-        this.GameLoop();
     }
 
-    public void GameLoop()
-    {
+    public void Update(){
         if(characters.Count >= 16){
             return;
         }
 
+        if(counter.GetWaitingCount == 0){
+            AddCharacter();
+        }
+    }
+
+    public void AddCharacter()
+    {
         var character = characterSpawner.SpawnNew();
-        characters.Add(character);
-        character.SetTarget(counter.GetPosition(), async () =>
-        {
-            var table = await counter.ShowSelection();
-            var nextTarget = tables[table].SeatCharacter(character);
-            character.SetTarget(nextTarget, () => this.GameLoop());
-        });
+        character.SetToCounterAction(ToCounter);
+        characters.Add(character, null);
+        counter.AddCharacter(character);
+    }
+
+    private void ToCounter(Character character)
+    {
+        var table = characters[character];
+        characters[character] = null;
+        table.UnseatCharacter(character);
+        counter.AddCharacter(character);
+    }
+
+    private void ToTable(Character character, int i)
+    {
+        var table = tables[i];
+        table.SeatCharacter(character);
+        characters[character] = table;
     }
 }

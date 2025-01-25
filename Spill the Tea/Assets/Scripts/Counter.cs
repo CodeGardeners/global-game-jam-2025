@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,11 +16,21 @@ public class Counter : MonoBehaviour
     [SerializeField]
     private Transform counterPosition;
 
-    private TaskCompletionSource<int> task;
+    [SerializeField]
+    private Vector3 offset;
+
+    private Queue<Character> waitingCharacters;
+    private Action<Character, int> toTable;
+
+    public int GetWaitingCount => waitingCharacters.Count;
+
+    public void Awake(){
+        waitingCharacters = new Queue<Character>();
+    }
 
     void Start()
     {
-        Color[] colors = GameManager.getColors();
+        Color[] colors = GameManager.GetColors();
         for (int i = 0; i < buttons.Count; i++)
         {
             var button = buttons[i];
@@ -29,17 +41,34 @@ public class Counter : MonoBehaviour
         }
     }
 
-    public async Task<int> ShowSelection(){
-        ui.SetActive(true);
-        task = new TaskCompletionSource<int>();
-        return await task.Task;
+    public void SetToTableAction(Action<Character, int> toTable){
+        this.toTable = toTable;
+    }
+
+    public void AddCharacter(Character character){
+        character.SetTarget(counterPosition.position + waitingCharacters.Count * offset, Character.CharacterState.ToCounter, waitingCharacters.Count == 0? CounterReached : null);
+        waitingCharacters.Enqueue(character);
     }
 
     public void OnClick(int num)
     {
         ui.SetActive(false);
-        task?.SetResult(num);
+        toTable(waitingCharacters.Dequeue(), num);
+
+        if(waitingCharacters.Count != 0){
+            ResetPosition();
+        }
     }
 
-    public Transform GetPosition() => counterPosition;
+    private void ResetPosition(){
+        var array = waitingCharacters.ToArray();
+        for (int i = array.Length-1; i >= 0; i--)
+        {
+            array[i].SetTarget(counterPosition.position + i * offset, Character.CharacterState.ToCounter, i == 0? CounterReached : null);
+        }
+    }
+
+    private void CounterReached(){
+        ui.SetActive(true);
+    }
 }

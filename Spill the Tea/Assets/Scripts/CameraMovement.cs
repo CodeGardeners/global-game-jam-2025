@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class CameraMovement : MonoBehaviour
 {
     [SerializeField]
-    private float speed = 0.001f;
+    private float speed = 0.005f;
 
     private InputAction move;
     private InputAction moveUpDown;
