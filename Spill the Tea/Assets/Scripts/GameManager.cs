@@ -3,6 +3,13 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    private static readonly Color[] COLORS = {
+        Color.red,
+        Color.green,
+        Color.blue,
+        Color.yellow
+    };
+
     [SerializeField]
     private Counter counter;
 
@@ -28,5 +35,9 @@ public class GameManager : MonoBehaviour
             var nextTarget = tables[table].SeatCharacter(character);
             character.SetTarget(nextTarget, () => {});
         });
+        for (int i = 0; i < tables.Count; i++)
+        {
+            tables[i].SetColor(COLORS[i]);
+        }
     }
 }
