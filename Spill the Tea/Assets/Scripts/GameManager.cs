@@ -3,6 +3,13 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    private static readonly Color[] COLORS = {
+        Color.red,
+        Color.green,
+        Color.blue,
+        Color.yellow
+    };
+
     [SerializeField]
     private Counter counter;
 
@@ -14,6 +21,11 @@ public class GameManager : MonoBehaviour
 
     private List<Character> characters;
 
+    public static Color[] getColors()
+    {
+        return COLORS;
+    }
+
     public void Awake()
     {
         characters = new List<Character>();
@@ -21,6 +33,10 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
+        for (int i = 0; i < tables.Count; i++)
+        {
+            tables[i].SetColor(COLORS[i]);
+        }
         this.GameLoop();
     }
 
@@ -29,7 +45,7 @@ public class GameManager : MonoBehaviour
         if(characters.Count >= 16){
             return;
         }
-        
+
         var character = characterSpawner.SpawnNew();
         characters.Add(character);
         character.SetTarget(counter.GetPosition(), async () =>

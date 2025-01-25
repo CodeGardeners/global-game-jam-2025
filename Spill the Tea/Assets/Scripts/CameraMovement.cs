@@ -10,7 +10,7 @@ public class CameraMovement : MonoBehaviour
     private InputAction move;
     private InputAction moveUpDown;
 
-    public void Awake()
+    public void Start()
     {
         move = Inputs.Instance.Actions.Player.MoveCamera;
         moveUpDown = Inputs.Instance.Actions.Player.MoveCameraUpDown;
