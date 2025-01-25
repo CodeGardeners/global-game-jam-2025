@@ -1,2 +1,3 @@
-Erster Dialog
-Zweites Dialog Fenster
+Erster Text
+zweiter Text
+Zeilenumbruch Test für Unity qqqqqqqqqqqqqqqeqweewrtubqweqwdqwdqwereqwfwefqwegewrfewgewg

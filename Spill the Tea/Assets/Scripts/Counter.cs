@@ -17,6 +17,9 @@ public class Counter : MonoBehaviour
     [SerializeField]
     private Vector3 offset;
 
+    [SerializeField]
+    private TextAsset inkJSON;
+
     private Queue<Character> waitingCharacters;
 
     public int GetWaitingCount => waitingCharacters.Count;
@@ -61,6 +64,8 @@ public class Counter : MonoBehaviour
     }
 
     private void CounterReached(){
+        // Start Dialog when counter reached
+        DialogueManager.GetInstance().EnterDialoguemode(inkJSON);
         // TODO disable buttons when table full
         ui.SetActive(true);
     }

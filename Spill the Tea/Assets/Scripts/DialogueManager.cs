@@ -42,7 +42,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         // TODO Handle forwarding the story:
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             ContinueStory();
         }
