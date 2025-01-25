@@ -9,6 +9,9 @@ public class Character : MonoBehaviour
     private Action navigationEnded;
     private bool isNavigating;
 
+    private int title;
+    private int track;
+
     public void Awake()
     {
         navAgent = GetComponent<NavMeshAgent>();
@@ -29,10 +32,21 @@ public class Character : MonoBehaviour
         }
     }
 
+    public int GetTitle()
+    {
+        return title;
+    }
+
+    public void SetIdentity(int title, int track){
+        this.title = title;
+        this.track = track;
+    }
+
     public void SetTarget(Transform target, Action navigationEnded)
     {
         this.navigationEnded = navigationEnded;
         navAgent.SetDestination(target.position);
         isNavigating = true;
+        Debug.Log("Character " + title + " " + track + " is navigating to " + target.position);
     }
 }
