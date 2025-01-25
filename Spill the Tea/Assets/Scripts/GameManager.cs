@@ -4,15 +4,12 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public static readonly Color[] Colors = {
-        Color.red,
-        Color.green,
-        Color.blue,
-        Color.yellow
-    };
 
     [SerializeField]
     private Counter counter;
+
+    [SerializeField]
+    private GameObject endScreen;
 
     [SerializeField]
     private List<Table> tables;
@@ -21,6 +18,8 @@ public class GameManager : MonoBehaviour
     private CharacterSpawner characterSpawner;
 
     private Dictionary<Character, Table> characters;
+
+    private int LockedTables = 0;
 
     public void Awake()
     {
@@ -75,5 +74,13 @@ public class GameManager : MonoBehaviour
             counter.DisableButton(i);
         }
         characters[character] = table;
+    }
+
+    public void addLockedTable(){
+        LockedTables++;
+        if(LockedTables == tables.Count){
+            Debug.Log("All tables are locked, calling end screen");
+            endScreen.SetActive(true);
+        }
     }
 }

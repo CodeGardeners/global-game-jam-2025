@@ -20,9 +20,7 @@ public class Character : MonoBehaviour, IPointerClickHandler
     private CharacterState characterState;
     private bool isNavigating;
 
-
-    public int Title;
-    public int Track;
+    private bool isLocked = false;
 
     public TextAsset inkDialogue;
 
@@ -54,18 +52,22 @@ public class Character : MonoBehaviour, IPointerClickHandler
         }
     }
 
+    public void Lock()
+    {
+        isLocked = true;
+    }
+
     public void SetTarget(Vector3 target, CharacterState characterState, Action<Character> navigationEnded = null)
     {
         this.characterState = characterState;
         this.navigationEnded = navigationEnded;
         navAgent.SetDestination(target);
         isNavigating = true;
-        Debug.Log("Character " + Title + " " + Track + " is navigating to " + target);
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (characterState is not CharacterState.Table)
+        if (characterState is not CharacterState.Table || isLocked)
         {
             return;
         }

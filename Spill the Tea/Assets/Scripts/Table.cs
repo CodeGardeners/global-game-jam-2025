@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using Audio;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -47,7 +49,7 @@ public class Table : MonoBehaviour
         var chair = GetNextAvailableChair();
         seatedCharacters.Add(character, chair);
         chair.DisableObstacle();
-        character.SetTarget(chair.transform.position, Character.CharacterState.ToTable, CheckMusic);
+        character.SetTarget(chair.transform.position, Character.CharacterState.ToTable, CheckMusicMatches);
         return seatedCharacters.Count == chairs.Count;
     }
 
@@ -57,26 +59,45 @@ public class Table : MonoBehaviour
         seatedCharacters.Remove(character);
     }
 
-    private void CheckMusic(Character character)
+    private void CheckMusicMatches(Character character)
     {
-        if (seatedCharacters.Count != chairs.Count)
+        var others = seatedCharacters.Keys.Where(x => x != character);
+        AudioGuestCharacter newAudioGuestCharacter = character.transform.GetChild(1).GetComponent<AudioGuestCharacter>();
+        var newDirector = newAudioGuestCharacter.playableDirector;
+        foreach (var other in others)
         {
-            return;
-        }
-
-        var title = seatedCharacters.Keys.First().Title;
-        foreach (var seated in seatedCharacters.Keys)
-        {
-            if (seated.Title != title)
+            AudioGuestCharacter audioGuestCharacter = other.transform.GetChild(1).GetComponent<AudioGuestCharacter>();
+            if (audioGuestCharacter.playableDirector != newDirector)
             {
+                PlayDistorted(true);
                 return;
             }
         }
-        Debug.Log("Hurra");
+        if (seatedCharacters.Count == chairs.Count)
+        {
+            PlayDistorted(false);
+            Debug.Log("All characters are playing the same piece");
+            Lock();
+        }
+    }
+    private void PlayDistorted(bool undistorted){
+        foreach (var character in seatedCharacters.Keys)
+        {
+            character.transform.GetChild(1).GetComponent<AudioGuestCharacter>().SetUndistortedPlaying(undistorted);
+        }
     }
 
     private Chair GetNextAvailableChair()
     {
         return chairs.Where(x => !seatedCharacters.Values.Contains(x)).FirstOrDefault();
+    }
+
+    private void Lock(){
+        Debug.Log("Locking table " + tableType);
+        foreach (Character character in seatedCharacters.Keys)
+        {
+            character.Lock();
+        }
+        GameManager.Instance.addLockedTable();
     }
 }

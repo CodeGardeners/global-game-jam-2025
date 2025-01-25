@@ -8,35 +8,33 @@ namespace Audio
     [Serializable]
     public class AudioGuestCharacter : MonoBehaviour
     {
-        [SerializeField] private AudioSource _audioSourceClean; 
-        [SerializeField] private AudioSource _audioSourceDistorted; 
+        [SerializeField] private AudioSource _audioSourceClean;
+        [SerializeField] private AudioSource _audioSourceDistorted;
         private bool seated = false;
         public PlayableDirector playableDirector;
-        
+
         // while the character sits next to others who are playing the same piece this stays true, else false.
         private bool playsUndistorted = true;
 
         public float crossfadeLength = 1.0f;
-    
+
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
-        
+
         }
 
         // Update is called once per frame
         void Update()
         {
-        
+
         }
 
-        public void ToggleDistortedPlaying()
+        public void SetUndistortedPlaying(bool undistorted)
         {
-            playsUndistorted = !playsUndistorted;
-            
-            return; 
+            playsUndistorted = undistorted;
         }
-        
+
         [ContextMenu("DEBUG Crossfade Sources")]
         private void CrossfadeAudioSources()
         {
@@ -45,7 +43,6 @@ namespace Audio
             StartCoroutine(AudioLib.FadeAudioSource.StartFade(_audioSourceClean, crossfadeLength, targetVolClean));
             StartCoroutine(AudioLib.FadeAudioSource.StartFade(_audioSourceDistorted, crossfadeLength, targetVolDistorted));
         }
-        
+
     }
 }
-

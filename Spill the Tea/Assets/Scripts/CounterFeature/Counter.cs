@@ -36,8 +36,6 @@ public class Counter : MonoBehaviour
         for (int i = 0; i < buttons.Count; i++)
         {
             var button = buttons[i];
-            int colorIndex = i % GameManager.Colors.Length;
-            button.GetComponent<Image>().color = GameManager.Colors[colorIndex];
             var j = i; // avoid closure problem
             button.onClick.AddListener(() => OnClick(j));
         }
