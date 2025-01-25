@@ -11,7 +11,8 @@ public class DialogueManager : MonoBehaviour
 
     private Story currentStory;
     private static DialogueManager instance;
-    private bool dialogueIsPlaying;
+    public bool dialogueIsPlaying { get; private set; }
+    public bool dialogueFinished { get; private set;}
 
     private void Awake()
     {
@@ -31,6 +32,7 @@ public class DialogueManager : MonoBehaviour
     private void Start()
     {
         dialogueIsPlaying = false;
+        dialogueFinished = false;
         dialoguePanel.SetActive(false);
     }
 
@@ -42,7 +44,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         // TODO Handle forwarding the story:
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             ContinueStory();
         }
@@ -60,6 +62,7 @@ public class DialogueManager : MonoBehaviour
     private void ExitDialogueMode()
     {
         dialogueIsPlaying = false;
+        dialogueFinished = true;
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
     }
@@ -74,5 +77,13 @@ public class DialogueManager : MonoBehaviour
         {
             ExitDialogueMode();
         }
+    }
+
+    public void ResetDialogue()
+    {
+        dialogueIsPlaying = false;
+        dialogueFinished = false;
+        dialoguePanel.SetActive(false);
+        dialogueText.text = "";
     }
 }

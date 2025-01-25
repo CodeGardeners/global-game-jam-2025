@@ -40,6 +40,19 @@ public class Counter : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        if (DialogueManager.GetInstance().dialogueFinished)
+        {
+            // TODO disable buttons when table full
+            ui.SetActive(true);
+        }
+        else
+        {
+            ui.SetActive(false);
+        }
+    }
+
     public void AddCharacter(Character character){
         character.SetTarget(counterPosition.position + waitingCharacters.Count * offset, Character.CharacterState.ToCounter, waitingCharacters.Count == 0? CounterReached : null);
         waitingCharacters.Enqueue(character);
@@ -48,6 +61,7 @@ public class Counter : MonoBehaviour
     public void OnClick(int num)
     {
         ui.SetActive(false);
+        DialogueManager.GetInstance().ResetDialogue();
         GameManager.Instance.ToTable(waitingCharacters.Dequeue(), num);
 
         if(waitingCharacters.Count != 0){
@@ -65,8 +79,7 @@ public class Counter : MonoBehaviour
 
     private void CounterReached(){
         // Start Dialog when counter reached
+        // TODO set ui active when DialoagueManager has DialogueFinished = true
         DialogueManager.GetInstance().EnterDialoguemode(inkJSON);
-        // TODO disable buttons when table full
-        ui.SetActive(true);
     }
 }
