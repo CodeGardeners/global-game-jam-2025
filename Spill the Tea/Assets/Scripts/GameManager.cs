@@ -4,12 +4,6 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public static readonly Color[] Colors = {
-        Color.red,
-        Color.green,
-        Color.blue,
-        Color.yellow
-    };
 
     [SerializeField]
     private Counter counter;
