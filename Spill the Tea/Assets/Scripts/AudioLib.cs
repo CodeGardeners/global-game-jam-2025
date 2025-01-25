@@ -37,8 +37,7 @@ namespace Audio
             while (currentTime < duration)
             {
                 currentTime += Time.deltaTime;
-                float newVol = Mathf.Lerp(currentVol, targetValue, currentTime / duration);
-                audioMixer.SetFloat(exposedParam, Mathf.Log10(newVol) * 20);
+                SetGroupVol(audioMixer, exposedParam, currentVol, targetValue, currentTime / duration);
                 yield return null;
             }
 

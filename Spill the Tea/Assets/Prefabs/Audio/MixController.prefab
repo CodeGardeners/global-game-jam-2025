@@ -46,5 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: fc1167fc99832f14283747785600393c, type: 2}
   masterVolumeParamName: MasterVolume
+  ambienceVolumeParamName: AmbienceVolume
+  charactersVolumeParamName: CharactersVolume
   masterFadeInLengthOnStart: 2
   masterVolume: 1
+  _cameraMovement: {fileID: 0}
