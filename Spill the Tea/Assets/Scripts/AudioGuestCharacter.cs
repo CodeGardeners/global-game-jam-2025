@@ -7,8 +7,10 @@ namespace Audio
     public class AudioGuestCharacter : MonoBehaviour
     {
 
-        public bool seated = false;
+        private bool seated = false;
         
+        // while the character sits next to others who are playing the same piece this stays true, else false.
+        private bool playsUndistorted = true; 
         
     
         // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -22,6 +24,15 @@ namespace Audio
         {
         
         }
+
+        public void ToggleDistortedPlaying()
+        {
+            playsUndistorted = !playsUndistorted;
+            
+            return; 
+        }
+        
+        
     }
 
 }
