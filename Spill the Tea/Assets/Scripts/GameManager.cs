@@ -33,6 +33,10 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
+        for (int i = 0; i < tables.Count; i++)
+        {
+            tables[i].SetColor(COLORS[i]);
+        }
         this.GameLoop();
     }
 
@@ -41,7 +45,7 @@ public class GameManager : MonoBehaviour
         if(characters.Count >= 16){
             return;
         }
-        
+
         var character = characterSpawner.SpawnNew();
         characters.Add(character);
         character.SetTarget(counter.GetPosition(), async () =>
@@ -50,9 +54,5 @@ public class GameManager : MonoBehaviour
             var nextTarget = tables[table].SeatCharacter(character);
             character.SetTarget(nextTarget, () => this.GameLoop());
         });
-        for (int i = 0; i < tables.Count; i++)
-        {
-            tables[i].SetColor(COLORS[i]);
-        }
     }
 }
