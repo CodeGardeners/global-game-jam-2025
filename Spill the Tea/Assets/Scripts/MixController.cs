@@ -14,6 +14,10 @@ namespace Audio
         [SerializeField] public float masterFadeInLengthOnStart = 2.0f;
         [SerializeField] public float masterVolume = 0.0f;
         [SerializeField] private CameraMovement _cameraMovement;
+        [SerializeField] private float ambienceMinVol = 0.0001f;
+        [SerializeField] private float ambienceMaxVol = 1.0f;
+        [SerializeField] private float charactersMinVol = 0.0001f;
+        [SerializeField] private float charactersMaxVol = 1.0f;
         private float _cameraHeight;
         
         void Start()
@@ -36,11 +40,11 @@ namespace Audio
         {
             float ambOldVol;
             audioMixer.GetFloat(ambienceVolumeParamName, out ambOldVol);
-            float ambNewVol = Mathf.Clamp(mix, 0.0001f, 1.0f);
+            float ambNewVol = Mathf.Clamp(mix, ambienceMinVol, ambienceMaxVol);
 
             float charsOldVol;
             audioMixer.GetFloat(charactersVolumeParamName, out charsOldVol);
-            float charsNewVol = Mathf.Clamp(mix*-1.0f+1.0f, 0.0001f, 1.0f);
+            float charsNewVol = Mathf.Clamp(mix*-1.0f+1.0f, charactersMinVol, charactersMaxVol);
 
             // FadeMixerGroup.SetGroupVol(
             //     audioMixer,

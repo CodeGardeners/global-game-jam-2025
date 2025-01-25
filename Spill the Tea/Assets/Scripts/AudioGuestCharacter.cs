@@ -1,6 +1,7 @@
 using System;
 
 using UnityEngine;
+using UnityEngine.Playables;
 
 namespace Audio
 {
@@ -10,6 +11,7 @@ namespace Audio
         [SerializeField] private AudioSource _audioSourceClean; 
         [SerializeField] private AudioSource _audioSourceDistorted; 
         private bool seated = false;
+        public PlayableDirector playableDirector;
         
         // while the character sits next to others who are playing the same piece this stays true, else false.
         private bool playsUndistorted = true;

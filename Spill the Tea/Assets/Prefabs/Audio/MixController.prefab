@@ -51,3 +51,7 @@ MonoBehaviour:
   masterFadeInLengthOnStart: 2
   masterVolume: 1
   _cameraMovement: {fileID: 0}
+  ambienceMinVol: 0.001
+  ambienceMaxVol: 0.3
+  charactersMinVol: 0.25
+  charactersMaxVol: 1
