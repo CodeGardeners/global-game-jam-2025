@@ -2158,6 +2158,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1360932294}
     m_Modifications:
+    - target: {fileID: -2274221999122097322, guid: 9de8e791bb432d94f8820d445e4ef058, type: 3}
+      propertyPath: inkDialogue
+      value: 
+      objectReference: {fileID: 4900000, guid: 6fce210ca916e45f58378b07551ff9ab, type: 3}
     - target: {fileID: 1341620497146868286, guid: 9de8e791bb432d94f8820d445e4ef058, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
