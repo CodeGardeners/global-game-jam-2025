@@ -1,16 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Table : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
+    [SerializeField]
+    private List<Transform> chairs;
+
+    private Dictionary<Transform, Character> seatedCharacters;
+
+    public void Awake(){
+        seatedCharacters = new Dictionary<Transform, Character>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public Transform GetNextAvailableChair(){
+        return chairs.Where(x => !seatedCharacters.Keys.Contains(x)).FirstOrDefault();
+    }
+
+    public Transform SeatCharacter(Character character){
+        var transform = GetNextAvailableChair();
+        seatedCharacters.Add(transform, character);
+        return transform;
     }
 }
