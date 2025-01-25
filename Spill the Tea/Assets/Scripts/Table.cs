@@ -24,7 +24,7 @@ public class Table : MonoBehaviour
         var chair = GetNextAvailableChair();
         seatedCharacters.Add(character, chair);
         chair.DisableObstacle();
-        character.SetTarget(chair.transform.position, Character.CharacterState.ToTable);
+        character.SetTarget(chair.transform.position, Character.CharacterState.ToTable, CheckMusic);
     }
 
     public void UnseatCharacter(Character character)
@@ -40,6 +40,24 @@ public class Table : MonoBehaviour
         {
             chair.SetColor(color);
         }
+    }
+
+    private void CheckMusic()
+    {
+        if (seatedCharacters.Count != chairs.Count)
+        {
+            return;
+        }
+
+        var title = seatedCharacters.Keys.First().Title;
+        foreach (var character in seatedCharacters.Keys)
+        {
+            if (character.Title != title)
+            {
+                return;
+            }
+        }
+        Debug.Log("Hurra");
     }
 
     private Chair GetNextAvailableChair()

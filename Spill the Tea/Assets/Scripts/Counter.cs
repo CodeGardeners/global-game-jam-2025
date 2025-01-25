@@ -18,7 +18,6 @@ public class Counter : MonoBehaviour
     private Vector3 offset;
 
     private Queue<Character> waitingCharacters;
-    private Action<Character, int> toTable;
 
     public int GetWaitingCount => waitingCharacters.Count;
 
@@ -62,6 +61,7 @@ public class Counter : MonoBehaviour
     }
 
     private void CounterReached(){
+        // TODO disable buttons when table full
         ui.SetActive(true);
     }
 }
