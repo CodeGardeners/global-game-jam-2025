@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 public class CameraMovement : MonoBehaviour
 {
     private const float speed = 0.01f;
+    private const float heightMin = 1;
+    private const float heightMax = 4;
 
     private InputAction move;
     private InputAction moveUpDown;
@@ -19,6 +21,11 @@ public class CameraMovement : MonoBehaviour
     {
         MoveCamera();
         MoveCameraUpDown();
+    }
+
+    public float GetCameraHeight()
+    {
+        return (transform.position.y - heightMin) / (heightMax - heightMin);
     }
 
     private void MoveCamera()
@@ -45,7 +52,7 @@ public class CameraMovement : MonoBehaviour
         var value = moveUpDown.ReadValue<Vector2>();
         var pos = transform.position;
         pos.y += value.y * speed;
-        pos.y = Math.Clamp(pos.y, 1f, 4f);
+        pos.y = Math.Clamp(pos.y, heightMin, heightMax);
         transform.position = pos;
     }
 }
