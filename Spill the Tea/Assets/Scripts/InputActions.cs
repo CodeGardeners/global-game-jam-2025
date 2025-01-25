@@ -29,7 +29,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             ""actions"": [
                 {
                     ""name"": ""MoveCamera"",
-                    ""type"": ""Value"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""8a17abac-c544-4d16-8052-6d0f6b17a775"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
@@ -38,7 +38,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""MoveCameraUpDown"",
-                    ""type"": ""Value"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""21ab4ee5-67f2-4aa1-b217-8bb96e78550d"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
