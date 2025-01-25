@@ -17,6 +17,10 @@ public class Counter : MonoBehaviour
     [SerializeField]
     private Vector3 offset;
 
+    [SerializeField]
+    private TextAsset inkJSON;
+
+    private ICounterToDialogue counterToDialogue;
     private Queue<Character> waitingCharacters;
 
     public int GetWaitingCount => waitingCharacters.Count;
@@ -28,6 +32,7 @@ public class Counter : MonoBehaviour
 
     void Start()
     {
+        counterToDialogue = (ICounterToDialogue)DialogueManager.GetInstance();
         for (int i = 0; i < buttons.Count; i++)
         {
             var button = buttons[i];
@@ -43,10 +48,23 @@ public class Counter : MonoBehaviour
         character.SetTarget(counterPosition.position + waitingCharacters.Count * offset, Character.CharacterState.ToCounter, waitingCharacters.Count == 0 ? CounterReached : null);
         waitingCharacters.Enqueue(character);
     }
-
+    
+    void Update()
+    {
+        if (counterToDialogue.GetDialogueFinished())
+        {
+            // TODO disable buttons when table full
+            ui.SetActive(true);
+        }
+        else
+        {
+            ui.SetActive(false);
+        }
+    }
     public void OnClick(int num)
     {
         ui.SetActive(false);
+        counterToDialogue.ResetDialogue(); // Resets Dialogue when 
         GameManager.Instance.ToTable(waitingCharacters.Dequeue(), num);
 
         if (waitingCharacters.Count != 0)
@@ -74,8 +92,9 @@ public class Counter : MonoBehaviour
         }
     }
 
-    private void CounterReached()
-    {
-        ui.SetActive(true);
+    private void CounterReached(){
+        // Start Dialog when counter reached
+        // TODO set ui active when DialoagueManager has DialogueFinished = true
+        counterToDialogue.EnterDialoguemode(inkJSON); // TODO get Dialogue from Character at Counter
     }
 }
