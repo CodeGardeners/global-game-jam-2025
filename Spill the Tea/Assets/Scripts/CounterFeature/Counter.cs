@@ -92,9 +92,10 @@ public class Counter : MonoBehaviour
         }
     }
 
-    private void CounterReached(){
+    private void CounterReached(Character character){
         // Start Dialog when counter reached
+        
         // TODO set ui active when DialoagueManager has DialogueFinished = true
-        counterToDialogue.EnterDialoguemode(inkJSON); // TODO get Dialogue from Character at Counter
+        counterToDialogue.EnterDialoguemode(character.inkDialogue); // TODO get Dialogue from Character at Counter
     }
 }
