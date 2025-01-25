@@ -222,7 +222,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Schubert02
+  m_Name: Schubert03
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 1ddc2c091f8d42e47ba48d6b0513adb9
   m_Children: []
@@ -278,19 +278,21 @@ AudioMixerController:
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
   m_UpdateMode: 0
-  m_ExposedParameters: []
+  m_ExposedParameters:
+  - guid: b2ce226bd3b4dee489ccd59912312663
+    name: MasterVolume
   m_AudioMixerGroupViews:
   - guids:
     - b7f787b9597ab684ab3fb8d5f9cf1319
     - 5507a8fb18951b34fbdd5ae027217aee
-    - 0aa861afd539bea419261640e3abce1d
     - 5c509fb6608daf74187520ee2816e7f5
-    - e91306326c5b45a438685628a8733288
+    - 0aa861afd539bea419261640e3abce1d
     - 0c2a7dfb2b11b3f49a78e133040985d8
-    - 440028a5b8f6f5b429888aad41da5ea1
+    - e91306326c5b45a438685628a8733288
     - 3bb63a119ad482448a00590bda1d9070
-    - 2bc272a704bd9ce45b217ee01071b25f
+    - 440028a5b8f6f5b429888aad41da5ea1
     - 1ddc2c091f8d42e47ba48d6b0513adb9
+    - 2bc272a704bd9ce45b217ee01071b25f
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -377,6 +379,7 @@ AudioMixerSnapshotController:
     5e6c8d2ac31d2e24088879fa1743fd65: -1060
     93e88f8ac152a184eb91461439e9f49b: -298
     8a6de19a8072d504481a4e264e2c5c1f: 0.063
+    b2ce226bd3b4dee489ccd59912312663: 0
     d9fe986b60a379744a3a84bfb65181c8: 4193
     45e7bfcb63cc6564ea5d9a12c8c69a12: 0.022
     c60bdb5c1083ee1448c19f9a63d6aa63: -298
@@ -455,7 +458,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Schubert02_Rev - Copy
+  m_Name: Schubert03_Rev - Copy
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 2bc272a704bd9ce45b217ee01071b25f
   m_Children: []
