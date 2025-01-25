@@ -18,7 +18,10 @@ public class CharacterSpawner : MonoBehaviour
         var shuffle = Enumerable.Range(0,transform.childCount).OrderBy(x => random.Next());
         foreach (int i in shuffle)
         {
-            var character = transform.GetChild(i).GetComponent<Character>();
+            if(!transform.GetChild(i).TryGetComponent<Character>(out var character))
+            {
+                continue;
+            }
             remainingCharacters.Enqueue(character);
         }
     }

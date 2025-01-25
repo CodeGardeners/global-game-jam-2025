@@ -6,7 +6,7 @@ public class CameraMovement : MonoBehaviour
 {
     private const float speed = 0.01f;
     private const float heightMin = 1;
-    private const float heightMax = 4;
+    private const float heightMax = 5;
 
     private InputAction move;
     private InputAction moveUpDown;
@@ -39,7 +39,7 @@ public class CameraMovement : MonoBehaviour
         pos.x += value.x * speed;
         pos.x = Math.Clamp(pos.x, -4f, 4.5f);
         pos.z += value.y * speed;
-        pos.z = Math.Clamp(pos.z, -5f, 2f);
+        pos.z = Math.Clamp(pos.z, -5f, 3f);
         transform.position = pos;
     }
 
