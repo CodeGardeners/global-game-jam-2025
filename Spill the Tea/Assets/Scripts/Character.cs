@@ -20,8 +20,8 @@ public class Character : MonoBehaviour, IPointerClickHandler
     private CharacterState characterState;
     private bool isNavigating;
 
-    private int title;
-    private int track;
+    public int Title { get; private set; }
+    public int Track { get; private set; }
 
     public void Awake()
     {
@@ -51,15 +51,11 @@ public class Character : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public int GetTitle()
-    {
-        return title;
-    }
 
     public void SetIdentity(int title, int track)
     {
-        this.title = title;
-        this.track = track;
+        Title = title;
+        Track = track;
     }
 
     public void SetToCounterAction(Action<Character> toCounter)
@@ -73,7 +69,7 @@ public class Character : MonoBehaviour, IPointerClickHandler
         this.navigationEnded = navigationEnded;
         navAgent.SetDestination(target);
         isNavigating = true;
-        Debug.Log("Character " + title + " " + track + " is navigating to " + target);
+        Debug.Log("Character " + Title + " " + Track + " is navigating to " + target);
     }
 
     public void OnPointerClick(PointerEventData eventData)
