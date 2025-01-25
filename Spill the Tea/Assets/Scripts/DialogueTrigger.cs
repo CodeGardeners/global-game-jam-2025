@@ -10,7 +10,7 @@ public class DialogueTrigger : MonoBehaviour
 
     private void Awake()
     {
-        playerInRange = false;
+        
     }
 
     private void Update()
@@ -18,7 +18,8 @@ public class DialogueTrigger : MonoBehaviour
         // Check here if player can talk with Range or Order of NPCs
         if (Input.GetKeyDown(KeyCode.Space)) // Trigger to start the dialog
         {
-            Debug.Log(inkJSON.text);
+            Debug.Log("Pressing Space");
+            DialogueManager.GetInstance().EnterDialoguemode(inkJSON);
         }
     }
 }
