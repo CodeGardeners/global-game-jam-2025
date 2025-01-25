@@ -3,16 +3,21 @@ using TMPro;
 using Ink.Runtime;
 using UnityEngine.InputSystem;
 
-public class DialogueManager : MonoBehaviour
+public class DialogueManager : MonoBehaviour, ICounterToDialogue
 {
     [Header("Dialogue UI")]
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TextMeshProUGUI dialogueText;
 
+    [Header("Choices UI")]
+    [SerializeField]
+    private GameObject[] choices;
+    private TextMeshProUGUI[] choicesText;
+
     private Story currentStory;
     private static DialogueManager instance;
     public bool dialogueIsPlaying { get; private set; }
-    public bool dialogueFinished { get; private set;}
+    private bool dialogueFinished;
 
     private void Awake()
     {
@@ -85,5 +90,10 @@ public class DialogueManager : MonoBehaviour
         dialogueFinished = false;
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
+    }
+
+    public bool GetDialogueFinished()
+    {
+        return dialogueFinished;
     }
 }

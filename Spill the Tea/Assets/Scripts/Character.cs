@@ -73,6 +73,8 @@ public class Character : MonoBehaviour, IPointerClickHandler
             return;
         }
 
+        // TODO check if within dialog, then you can't click characters
         GameManager.Instance.ToCounter(this);
+
     }
 }
