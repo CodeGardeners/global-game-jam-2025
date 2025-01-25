@@ -6,21 +6,25 @@ using UnityEngine;
 public class Table : MonoBehaviour
 {
     [SerializeField]
-    private List<Transform> chairs;
+    private List<Chair> chairs;
 
-    private Dictionary<Transform, Character> seatedCharacters;
+    private Dictionary<Chair, Character> seatedCharacters;
 
-    public void Awake(){
-        seatedCharacters = new Dictionary<Transform, Character>();
+    public void Awake()
+    {
+        seatedCharacters = new Dictionary<Chair, Character>();
     }
 
-    public Transform GetNextAvailableChair(){
+    public Transform SeatCharacter(Character character)
+    {
+        var chair = GetNextAvailableChair();
+        seatedCharacters.Add(chair, character);
+        chair.DisableObstacle();
+        return chair.transform;
+    }
+
+    private Chair GetNextAvailableChair()
+    {
         return chairs.Where(x => !seatedCharacters.Keys.Contains(x)).FirstOrDefault();
-    }
-
-    public Transform SeatCharacter(Character character){
-        var transform = GetNextAvailableChair();
-        seatedCharacters.Add(transform, character);
-        return transform;
     }
 }
