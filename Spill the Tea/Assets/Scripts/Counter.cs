@@ -52,6 +52,16 @@ public class Counter : MonoBehaviour
         }
     }
 
+    public void EnableButton(int i)
+    {
+        buttons[i].enabled = true;
+    }
+
+    public void DisableButton(int i)
+    {
+        buttons[i].enabled = false;
+    }
+
     private void ResetPosition(){
         var array = waitingCharacters.ToArray();
         for (int i = array.Length-1; i >= 0; i--)
@@ -61,7 +71,6 @@ public class Counter : MonoBehaviour
     }
 
     private void CounterReached(){
-        // TODO disable buttons when table full
         ui.SetActive(true);
     }
 }
