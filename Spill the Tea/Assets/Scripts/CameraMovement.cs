@@ -39,7 +39,7 @@ public class CameraMovement : MonoBehaviour
         pos.x += value.x * speed;
         pos.x = Math.Clamp(pos.x, -4f, 4.5f);
         pos.z += value.y * speed;
-        pos.z = Math.Clamp(pos.z, -5f, 1f);
+        pos.z = Math.Clamp(pos.z, -5f, 2f);
         transform.position = pos;
     }
 

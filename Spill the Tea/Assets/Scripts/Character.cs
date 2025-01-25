@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using System;
 using UnityEngine.EventSystems;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class Character : MonoBehaviour, IPointerClickHandler
@@ -19,7 +20,9 @@ public class Character : MonoBehaviour, IPointerClickHandler
     private CharacterState characterState;
     private bool isNavigating;
 
+    [SerializeField]
     public int Title { get; private set; }
+    [SerializeField]
     public int Track { get; private set; }
 
     public void Awake()
@@ -50,13 +53,6 @@ public class Character : MonoBehaviour, IPointerClickHandler
         }
     }
 
-
-    public void SetIdentity(int title, int track)
-    {
-        Title = title;
-        Track = track;
-    }
-
     public void SetTarget(Vector3 target, CharacterState characterState, Action navigationEnded = null)
     {
         this.characterState = characterState;
@@ -73,6 +69,8 @@ public class Character : MonoBehaviour, IPointerClickHandler
             return;
         }
 
+        // TODO check if within dialog, then you can't click characters
         GameManager.Instance.ToCounter(this);
+
     }
 }

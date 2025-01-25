@@ -58,6 +58,11 @@ public class GameManager : MonoBehaviour
     public void AddCharacter()
     {
         var character = characterSpawner.SpawnNew();
+        if (character == null)
+        {
+            Debug.LogError("No more characters to spawn");
+            return;
+        }
         characters.Add(character, null);
         counter.AddCharacter(character);
     }
