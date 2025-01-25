@@ -1,11 +1,9 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI;
 
 public class GameManager : MonoBehaviour
 {
-    private static readonly Color[] COLORS = {
+    public static readonly Color[] Colors = {
         Color.red,
         Color.green,
         Color.blue,
@@ -23,11 +21,6 @@ public class GameManager : MonoBehaviour
 
     private Dictionary<Character, Table> characters;
 
-    public static Color[] GetColors()
-    {
-        return COLORS;
-    }
-
     public void Awake()
     {
         characters = new Dictionary<Character, Table>();
@@ -38,7 +31,7 @@ public class GameManager : MonoBehaviour
         counter.SetToTableAction(ToTable);
         for (int i = 0; i < tables.Count; i++)
         {
-            tables[i].SetColor(COLORS[i]);
+            tables[i].SetColor(Colors[i]);
         }
     }
 
