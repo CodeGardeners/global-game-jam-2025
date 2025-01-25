@@ -32,7 +32,7 @@ public class Counter : MonoBehaviour
 
     void Start()
     {
-        counterToDialogue = (ICounterToDialogue)DialogueManager.GetInstance();
+        counterToDialogue = DialogueManager.GetInstance();
         for (int i = 0; i < buttons.Count; i++)
         {
             var button = buttons[i];
