@@ -25,11 +25,12 @@ namespace Audio
 
         void Start()
         {
-            _cameraMovement = Camera.main.GetComponent<CameraMovement>();
+            Camera camera =Camera.main;
+            _cameraMovement = camera.GetComponent<CameraMovement>();
             audioMixer.SetFloat(masterVolumeParamName, -80.0f);
             float vol;
             audioMixer.GetFloat(masterVolumeParamName, out vol);
-            Debug.Log(vol);
+            //Debug.Log(vol);
             
             StartCoroutine(FadeMixerGroup.StartFade(audioMixer, masterVolumeParamName, masterFadeInLengthOnStart, masterVolume));
         }
@@ -43,23 +44,33 @@ namespace Audio
         {
             float ambOldVol;
             audioMixer.GetFloat(ambienceVolumeParamName, out ambOldVol);
+            float ambNewVol = Mathf.Clamp(mix, 0.0001f, 1.0f);
+
             float charsOldVol;
             audioMixer.GetFloat(charactersVolumeParamName, out charsOldVol);
-            float charsNewVol = Mathf.Clamp(1.0f, 0.0f, mix);
+            float charsNewVol = Mathf.Clamp(mix*-1.0f+1.0f, 0.0001f, 1.0f);
 
-            FadeMixerGroup.SetGroupVol(
+            // FadeMixerGroup.SetGroupVol(
+            //     audioMixer,
+            //     ambienceVolumeParamName,
+            //     ambOldVol,
+            //     mix,
+            //     mix);
+            // FadeMixerGroup.SetGroupVol(
+            //     audioMixer,
+            //     charactersVolumeParamName,
+            //     charsOldVol,
+            //     charsNewVol,
+            //     mix);            
+            FadeMixerGroup.SetGroupVol2(
                 audioMixer,
                 ambienceVolumeParamName,
-                ambOldVol,
-                mix,
-                mix);
-            FadeMixerGroup.SetGroupVol(
+                ambNewVol);
+            FadeMixerGroup.SetGroupVol2(
                 audioMixer,
                 charactersVolumeParamName,
-                charsOldVol,
-                charsNewVol,
-                mix);
-            
+                charsNewVol);
+            Debug.Log($"charVol: {charsNewVol}");
         }
     }
 

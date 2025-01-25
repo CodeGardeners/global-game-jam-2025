@@ -48,6 +48,18 @@ namespace Audio
         {
             float setVol = Mathf.Lerp(oldVol, newVol, value);
             audioMixer.SetFloat(exposedParam, Mathf.Log10(setVol) * 20);
+            float debugVol = 666;
+            audioMixer.GetFloat(exposedParam, out debugVol);
+            Debug.Log(debugVol);
+        }
+        
+        public static void SetGroupVol2(AudioMixer audioMixer, string exposedParam, float value)
+        {
+            
+            audioMixer.SetFloat(exposedParam, Mathf.Log10(value) * 20);
+            float debugVol = 666;
+            audioMixer.GetFloat(exposedParam, out debugVol);
+            Debug.Log(debugVol);
         }
     }
     
