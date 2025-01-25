@@ -9,11 +9,6 @@ public class DialogueManager : MonoBehaviour, ICounterToDialogue
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TextMeshProUGUI dialogueText;
 
-    [Header("Choices UI")]
-    [SerializeField]
-    private GameObject[] choices;
-    private TextMeshProUGUI[] choicesText;
-
     private Story currentStory;
     private static DialogueManager instance;
     public bool dialogueIsPlaying { get; private set; }

@@ -20,6 +20,7 @@ public class Character : MonoBehaviour, IPointerClickHandler
     private CharacterState characterState;
     private bool isNavigating;
 
+
     [SerializeField]
     public int Title { get; private set; }
     [SerializeField]
