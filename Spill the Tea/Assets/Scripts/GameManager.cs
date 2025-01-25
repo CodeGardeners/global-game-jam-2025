@@ -34,14 +34,6 @@ public class GameManager : MonoBehaviour
         characters = new Dictionary<Character, Table>();
     }
 
-    public void Start()
-    {
-        for (int i = 0; i < tables.Count; i++)
-        {
-            tables[i].SetColor(Colors[i]);
-        }
-    }
-
     public void Update()
     {
         if (characters.Count >= 16)

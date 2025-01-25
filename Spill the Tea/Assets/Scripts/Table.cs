@@ -1,22 +1,45 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
-[RequireComponent(typeof(Renderer))]
+[RequireComponent(typeof(SpriteRenderer))]
 public class Table : MonoBehaviour
 {
     [SerializeField]
     private List<Chair> chairs;
 
-    private new Renderer renderer;
-
     private Dictionary<Character, Chair> seatedCharacters;
+
+    [SerializeField]
+    private List<Sprite> tableSprites;
+
+    public enum TableType
+    {
+        blue = 0,
+        green = 1,
+        red = 2,
+        yellow = 3
+    }
+
+    [SerializeField]
+    private TableType tableType;
+
 
     public void Awake()
     {
-        renderer = GetComponent<Renderer>();
+        SpriteRenderer renderer = GetComponent<SpriteRenderer>();
         seatedCharacters = new Dictionary<Character, Chair>();
+        renderer.sprite = tableSprites[(int)tableType];
+    }
+
+    public void Start()
+    {
+        foreach (var chair in chairs)
+        {
+            chair.SetTableType(tableType);
+        }
     }
 
     public bool SeatCharacter(Character character)
@@ -32,15 +55,6 @@ public class Table : MonoBehaviour
     {
         seatedCharacters[character].EnableObstacle();
         seatedCharacters.Remove(character);
-    }
-
-    public void SetColor(Color color)
-    {
-        renderer.material.color = color;
-        foreach (var chair in chairs)
-        {
-            chair.SetColor(color);
-        }
     }
 
     private void CheckMusic(Character character)

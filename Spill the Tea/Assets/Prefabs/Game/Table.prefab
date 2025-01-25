@@ -111,6 +111,12 @@ MonoBehaviour:
   - {fileID: 4621122146486287288}
   - {fileID: 590048435660043965}
   - {fileID: 5353237331848389826}
+  tableSprites:
+  - {fileID: 21300000, guid: 0d2ef5539220f3a4e993534ef25e1ff5, type: 3}
+  - {fileID: 21300000, guid: 81b4eef300b42b7438d8656a325bb295, type: 3}
+  - {fileID: 21300000, guid: a0198e4427e90d04e9711337a5f4fa32, type: 3}
+  - {fileID: 21300000, guid: a4bf30bfb51b7d24b9224c7db75274a1, type: 3}
+  tableType: 0
 --- !u!208 &781098314205445075
 NavMeshObstacle:
   m_ObjectHideFlags: 0

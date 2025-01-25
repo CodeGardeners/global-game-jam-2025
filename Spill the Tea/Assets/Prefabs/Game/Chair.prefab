@@ -117,3 +117,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 261d6213b51a69ac4979fe3c83937c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chairSprites:
+  - {fileID: 21300000, guid: ecd2042d8fd83f14287a283f23a80cbb, type: 3}
+  - {fileID: 21300000, guid: 4c84108916f7e0c48b27d364aeef94c8, type: 3}
+  - {fileID: 21300000, guid: 5987292d3bae950438da727790f84272, type: 3}
+  - {fileID: 21300000, guid: e08ae11951ac30949a6dcb2b2b0d6acd, type: 3}
