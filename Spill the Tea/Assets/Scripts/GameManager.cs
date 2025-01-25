@@ -21,12 +21,22 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
+        this.GameLoop();
+    }
+
+    public void GameLoop()
+    {
+        if(characters.Count >= 16){
+            return;
+        }
+        
         var character = characterSpawner.SpawnNew();
         characters.Add(character);
-        character.SetTarget(counter.GetPosition(), async () => {
+        character.SetTarget(counter.GetPosition(), async () =>
+        {
             var table = await counter.ShowSelection();
             var nextTarget = tables[table].SeatCharacter(character);
-            character.SetTarget(nextTarget, () => {});
+            character.SetTarget(nextTarget, () => this.GameLoop());
         });
     }
 }
