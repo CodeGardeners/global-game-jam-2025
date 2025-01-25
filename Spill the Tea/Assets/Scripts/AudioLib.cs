@@ -44,5 +44,13 @@ namespace Audio
 
             yield break;
         }
+
+        public static void SetGroupVol(AudioMixer audioMixer, string exposedParam, float oldVol, float newVol, float value)
+        {
+            float setVol = Mathf.Lerp(oldVol, newVol, value);
+            audioMixer.SetFloat(exposedParam, Mathf.Log10(setVol) * 20);
+        }
     }
+    
+    
 }
