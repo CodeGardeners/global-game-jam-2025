@@ -21,6 +21,7 @@ public class CharacterSpawner : MonoBehaviour
             SpriteWobble wobble = character.GetComponentInChildren<SpriteWobble>(true);
             if (characterTextures.Count != 0){
                 wobble.characterTexture = characterTextures[character.characterId % characterTextures.Count];
+                wobble.GetComponent<MeshRenderer>().material.color = Random.ColorHSV(0f, 1f, 0.2f, 0.4f, 0.9f, 0.95f, 1f, 1f);
             }else {
                 Debug.LogWarning("No character textures found");
             }
