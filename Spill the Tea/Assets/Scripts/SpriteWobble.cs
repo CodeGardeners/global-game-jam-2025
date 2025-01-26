@@ -37,10 +37,10 @@ public class SpriteWobble : MonoBehaviour
         // Define the quad vertices
         vertices = new[]
         {
-            new Vector3(-0.5f, -0.5f, 0), // Bottom-left
-            new Vector3(0.5f, -0.5f, 0),  // Bottom-right
-            new Vector3(-0.5f, 0.5f, 0),  // Top-left
-            new Vector3(0.5f, 0.5f, 0)    // Top-right
+            new Vector3(-0.5f, -0.75f, 0), // Bottom-left
+            new Vector3(0.5f, -0.75f, 0),  // Bottom-right
+            new Vector3(-0.5f, 0.75f, 0),  // Top-left
+            new Vector3(0.5f, 0.75f, 0)    // Top-right
         };
 
         // Define the UVs to map the texture correctly
@@ -92,7 +92,8 @@ public class SpriteWobble : MonoBehaviour
     {
         //Rotate Canmera
         Vector3 directionToCamera = mainCamera.transform.position - transform.position;
-        Quaternion rotation = Quaternion.LookRotation(directionToCamera.normalized);
-        transform.rotation = Quaternion.Euler(0, rotation.eulerAngles.y, 0); // Billboard only on Y-axis
+        //Quaternion rotation = Quaternion.LookRotation(directionToCamera.normalized);
+        Quaternion rotation = Quaternion.LookRotation(mainCamera.transform.forward);
+        transform.rotation = Quaternion.Euler(rotation.eulerAngles.x, rotation.eulerAngles.y, rotation.eulerAngles.z); // Billboard only on Y-axis
     }
 }
