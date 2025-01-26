@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Counter : MonoBehaviour
@@ -19,6 +20,9 @@ public class Counter : MonoBehaviour
 
     [SerializeField]
     private TextAsset inkJSON;
+    
+    [SerializeField]
+    private UnityEvent onConterReached;
 
     private ICounterToDialogue counterToDialogue;
     private Queue<Character> waitingCharacters;
@@ -93,7 +97,13 @@ public class Counter : MonoBehaviour
     private void CounterReached(Character character){
         // Start Dialog when counter reached
         
+        // invoke to e.g. play a sound
+        onConterReached.Invoke();
+        
         // TODO set ui active when DialoagueManager has DialogueFinished = true
         counterToDialogue.EnterDialoguemode(character.GetInkDialogue()); // TODO get Dialogue from Character at Counter
+        
+        
+        
     }
 }
