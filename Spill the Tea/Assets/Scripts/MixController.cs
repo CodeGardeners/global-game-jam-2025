@@ -23,8 +23,6 @@ namespace Audio
         
         void Start()
         {
-            Camera camera =Camera.main;
-            _cameraMovement = camera.GetComponent<CameraMovement>();
             audioMixer.SetFloat(masterVolumeParamName, -80.0f);
             float vol;
             audioMixer.GetFloat(masterVolumeParamName, out vol);
@@ -35,7 +33,7 @@ namespace Audio
         // on Scene 
         private void Update()
         {
-            SetAmbienceMix(_cameraMovement.GetCameraHeight());
+            SetAmbienceMix(_cameraMovement == null? 0f: _cameraMovement.GetCameraHeight());
         }
 
         private void SetAmbienceMix(float mix)
