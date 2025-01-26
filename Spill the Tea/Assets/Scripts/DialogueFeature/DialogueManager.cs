@@ -93,4 +93,9 @@ public class DialogueManager : MonoBehaviour, ICounterToDialogue
     {
         return dialogueFinished;
     }
+
+    public void DialogueContinueButton()
+    {
+        ContinueStory();
+    }
 }
