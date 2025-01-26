@@ -7490,6 +7490,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 590048435660043965, guid: 678c392f77ca9d545a064d790dda97d4, type: 3}
+      propertyPath: bottomChair
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1478749919431701521, guid: 678c392f77ca9d545a064d790dda97d4, type: 3}
       propertyPath: m_Name
       value: Table
