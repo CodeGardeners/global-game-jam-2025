@@ -12,11 +12,15 @@ namespace Audio
         [SerializeField] private AudioSource _audioSourceDistorted;
         private bool seated = false;
         public PlayableDirector playableDirector;
-
         // while the character sits next to others who are playing the same piece this stays false, else true.
         private bool playsDistorted = true;
+        [SerializeField] private float crossfadeLength = 1.0f;
+        [Header("SFX")] [SerializeField] private AudioSource audioSourceSFX;
+        // [SerializeField] private AudioClip sfxArriveAtCounter;
+        // [SerializeField] private 
+        
 
-        public float crossfadeLength = 1.0f;
+        
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
