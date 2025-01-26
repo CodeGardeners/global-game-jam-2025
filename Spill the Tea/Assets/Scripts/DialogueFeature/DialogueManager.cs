@@ -48,7 +48,7 @@ public class DialogueManager : MonoBehaviour, ICounterToDialogue
         // TODO Handle forwarding the story:
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            ContinueStory();
+            DialogueContinueButton();
         }
     }
 
