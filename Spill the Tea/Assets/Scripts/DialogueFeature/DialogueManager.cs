@@ -48,7 +48,7 @@ public class DialogueManager : MonoBehaviour, ICounterToDialogue
         // TODO Handle forwarding the story:
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            ContinueStory();
+            DialogueContinueButton();
         }
     }
 
@@ -92,5 +92,10 @@ public class DialogueManager : MonoBehaviour, ICounterToDialogue
     public bool GetDialogueFinished()
     {
         return dialogueFinished;
+    }
+
+    public void DialogueContinueButton()
+    {
+        ContinueStory();
     }
 }
