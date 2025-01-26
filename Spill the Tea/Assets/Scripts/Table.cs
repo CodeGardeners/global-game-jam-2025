@@ -68,6 +68,9 @@ public class Table : MonoBehaviour
 
     private void CheckMusicMatches()
     {
+        if(seatedCharacters.Count == 0){
+            return;
+        }
         var characters = seatedCharacters.Keys;
         var referenceDirector = characters.First().GetAudioGuestCharacter().playableDirector;
         bool matches = characters.All(x => x.GetAudioGuestCharacter().playableDirector == referenceDirector);
