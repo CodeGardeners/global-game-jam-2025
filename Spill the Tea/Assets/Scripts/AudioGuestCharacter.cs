@@ -33,6 +33,11 @@ namespace Audio
         public void SetDistortedPlaying(bool distorted)
         {
             playsDistorted = distorted;
+            float targetVolClean = (distorted) ? 0.0f : 1.0f;
+            float targetVolDistorted = (distorted) ? 1.0f : 0.0f;
+            StartCoroutine(AudioLib.FadeAudioSource.StartFade(_audioSourceClean, crossfadeLength, targetVolClean));
+            StartCoroutine(AudioLib.FadeAudioSource.StartFade(_audioSourceDistorted, crossfadeLength, targetVolDistorted));
+            
         }
 
         [ContextMenu("DEBUG Crossfade Sources")]
