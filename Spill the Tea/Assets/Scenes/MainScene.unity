@@ -580,7 +580,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ae78c323f83c7a4489edcc1b544e54fa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9438eb916292b5343acb689373e9865a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3143,8 +3143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98dd06634ee7fff429cc4379ba97c5f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterPrefab: {fileID: -2274221999122097322, guid: 9de8e791bb432d94f8820d445e4ef058, type: 3}
-  spawnPoint: {fileID: 909080955}
 --- !u!4 &1360932294
 Transform:
   m_ObjectHideFlags: 0
@@ -5252,7 +5250,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9438eb916292b5343acb689373e9865a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ae78c323f83c7a4489edcc1b544e54fa, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
