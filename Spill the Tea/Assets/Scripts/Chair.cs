@@ -10,7 +10,9 @@ public class Chair : MonoBehaviour
 
     [SerializeField]
     private List<Sprite> chairSprites;
-
+    
+    [SerializeField]
+    private bool bottomChair = false;
     public void Awake()
     {
         renderer = GetComponent<SpriteRenderer>();
@@ -34,5 +36,10 @@ public class Chair : MonoBehaviour
     public void SetTableType(Table.TableType type)
     {
         renderer.sprite = chairSprites[(int)type];
+    }
+
+    public bool IsBottomChair()
+    {
+        return bottomChair;
     }
 }
