@@ -1,7 +1,2 @@
-Hey, I'm Iris! I got the chance to visit a museum with my 
-    students today. What a wonderful way to teach! Maybe
-    I should play some math games with them next?
-    
-I'm sure they would love that!
-
-
+Good day everyone. My name is Otto, yoga instructor and recreational expert.
+Everyone should get to relax every once in while.

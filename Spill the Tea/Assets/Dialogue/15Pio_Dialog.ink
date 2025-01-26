@@ -1,5 +1,2 @@
-Pio is my name. Doctor my profession. Healing my
-    passion. Coffee my fuel. But I will settle for a good
-    bubble tea. And maybe a productive conversation.
-
-
+Hi, my name is Phillip. I love bubble tea! Actually, I love food and drinks in general. I could talk about it all day.
+Though usually, people are annoyed by my talking. It would be great to find someone who shares my passion!
