@@ -94,6 +94,6 @@ public class Counter : MonoBehaviour
         // Start Dialog when counter reached
         
         // TODO set ui active when DialoagueManager has DialogueFinished = true
-        counterToDialogue.EnterDialoguemode(character.inkDialogue); // TODO get Dialogue from Character at Counter
+        counterToDialogue.EnterDialoguemode(character.GetInkDialogue()); // TODO get Dialogue from Character at Counter
     }
 }
