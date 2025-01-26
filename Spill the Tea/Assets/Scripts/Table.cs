@@ -57,33 +57,31 @@ public class Table : MonoBehaviour
     {
         seatedCharacters[character].EnableObstacle();
         seatedCharacters.Remove(character);
+        CheckMusicMatches();
     }
 
     private void CheckMusicMatches(Character character)
     {
-        var others = seatedCharacters.Keys.Where(x => x != character);
-        AudioGuestCharacter newAudioGuestCharacter = character.transform.GetChild(1).GetComponent<AudioGuestCharacter>();
-        var newDirector = newAudioGuestCharacter.playableDirector;
-        foreach (var other in others)
+        CheckMusicMatches();
+    }
+
+    private void CheckMusicMatches()
+    {
+        var characters = seatedCharacters.Keys;
+        var referenceDirector = characters.First().GetAudioGuestCharacter().playableDirector;
+        bool matches = characters.All(x => x.GetAudioGuestCharacter().playableDirector == referenceDirector);
+        PlayDistorted(!matches);
+        if (matches && seatedCharacters.Count == chairs.Count)
         {
-            AudioGuestCharacter audioGuestCharacter = other.transform.GetChild(1).GetComponent<AudioGuestCharacter>();
-            if (audioGuestCharacter.playableDirector != newDirector)
-            {
-                PlayDistorted(true);
-                return;
-            }
-        }
-        if (seatedCharacters.Count == chairs.Count)
-        {
-            PlayDistorted(false);
-            Debug.Log("All characters are playing the same piece");
             Lock();
         }
     }
-    private void PlayDistorted(bool distorted){
+
+    private void PlayDistorted(bool distorted)
+    {
         foreach (var character in seatedCharacters.Keys)
         {
-            character.transform.GetChild(1).GetComponent<AudioGuestCharacter>().SetDistortedPlaying(distorted);
+            character.GetAudioGuestCharacter().SetDistortedPlaying(distorted);
         }
     }
 
@@ -92,7 +90,8 @@ public class Table : MonoBehaviour
         return chairs.Where(x => !seatedCharacters.Values.Contains(x)).FirstOrDefault();
     }
 
-    private void Lock(){
+    private void Lock()
+    {
         Debug.Log("Locking table " + tableType);
         foreach (Character character in seatedCharacters.Keys)
         {

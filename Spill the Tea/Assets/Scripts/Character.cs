@@ -3,6 +3,8 @@ using UnityEngine.AI;
 using System;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using Audio;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class Character : MonoBehaviour, IPointerClickHandler
@@ -50,6 +52,15 @@ public class Character : MonoBehaviour, IPointerClickHandler
                 }
             }
         }
+    }
+
+    public AudioGuestCharacter GetAudioGuestCharacter(){
+        foreach (Transform child in transform){
+            if (child.gameObject.GetComponent<AudioGuestCharacter>() != null){
+                return child.gameObject.GetComponent<AudioGuestCharacter>();
+            }
+        }
+        return null;
     }
 
     public void Lock()
