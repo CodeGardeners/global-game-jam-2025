@@ -24,11 +24,30 @@ public class Character : MonoBehaviour, IPointerClickHandler
 
     private bool isLocked = false;
 
-    public TextAsset inkDialogue;
+    private TextAsset inkDialogue;
 
+    public DialogAssociator dialogAssociator;
+    public int characterId;
+    
     public void Awake()
     {
         navAgent = GetComponent<NavMeshAgent>();
+    }
+
+    private void Start()
+    {
+        if (dialogAssociator != null)
+        {
+            inkDialogue = dialogAssociator.GetInkFileForCharacter(characterId);
+            if (inkDialogue != null)
+            {
+                Debug.Log($"Loaded dialog for {gameObject.name}: {inkDialogue.name}");
+            }
+        }
+        else
+        {
+            Debug.LogError($"DialogAssociator of {gameObject.name} is not assigned!");
+        }
     }
 
     public void Update()
@@ -85,6 +104,10 @@ public class Character : MonoBehaviour, IPointerClickHandler
 
         // TODO check if within dialog, then you can't click characters
         GameManager.Instance.ToCounter(this);
+    }
 
+    public TextAsset GetInkDialogue()
+    {
+        return inkDialogue;
     }
 }

@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: DialogAssociatorManager
+  m_EditorClassIdentifier: Assembly-CSharp::DialogAssociator
+  characterDialogs:
+  - characterId: 0
+    inkFile: {fileID: 4900000, guid: e4a1ce633a03e4d62a9ad85aa0682777, type: 3}
+  - characterId: 1
+    inkFile: {fileID: 4900000, guid: 775c5bf806b704c8caa7f8207e02f712, type: 3}
+  - characterId: 2
+    inkFile: {fileID: 4900000, guid: d2a23971d014b4de3a7b73f5e71aa303, type: 3}
+  - characterId: 3
+    inkFile: {fileID: 4900000, guid: fbbd5018403d2413fbb235dd1f28dbce, type: 3}
+  - characterId: 4
+    inkFile: {fileID: 4900000, guid: fcadbb539c13942c39cf45d7ab533866, type: 3}
+  - characterId: 5
+    inkFile: {fileID: 4900000, guid: 3e0b278db74e6481d8c57101f140ef52, type: 3}
+  - characterId: 6
+    inkFile: {fileID: 4900000, guid: 0f17c3fe6844a45cba01ab2824cc1c5f, type: 3}
+  - characterId: 7
+    inkFile: {fileID: 4900000, guid: 6fce210ca916e45f58378b07551ff9ab, type: 3}
+  - characterId: 8
+    inkFile: {fileID: 4900000, guid: 4a238ade18d504c7b9e7f00498f8dd9a, type: 3}
+  - characterId: 9
+    inkFile: {fileID: 4900000, guid: 19415dd95b628409fb7d17461ca5a7af, type: 3}
+  - characterId: 10
+    inkFile: {fileID: 4900000, guid: 11aff331f7cdd4258b59b78d0bc7d4bf, type: 3}
+  - characterId: 11
+    inkFile: {fileID: 4900000, guid: 7c6ad5412f85a4b7a962c3c8bb0a6ede, type: 3}
+  - characterId: 12
+    inkFile: {fileID: 4900000, guid: cecc6e1f499674c84b92c6a5660f1ee1, type: 3}
+  - characterId: 13
+    inkFile: {fileID: 4900000, guid: 646a675c102e14ce49ce9e568538fbfc, type: 3}
+  - characterId: 14
+    inkFile: {fileID: 4900000, guid: a11954322f1c9446292b7f398e6b6953, type: 3}
+  - characterId: 15
+    inkFile: {fileID: 4900000, guid: 39e8ce92edf9a4e2eb475c76f3925437, type: 3}
