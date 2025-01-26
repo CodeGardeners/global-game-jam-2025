@@ -28,7 +28,10 @@ public class Character : MonoBehaviour, IPointerClickHandler
 
     public DialogAssociator dialogAssociator;
     public int characterId;
-    
+
+    public MeshRenderer meshRendererOfSprite;
+    private int defaultRenderQueue;
+    public int bottomChairRenderQueue  =3000;
     public void Awake()
     {
         navAgent = GetComponent<NavMeshAgent>();
@@ -36,6 +39,9 @@ public class Character : MonoBehaviour, IPointerClickHandler
 
     private void Start()
     {
+        // get default renderQueue;
+        defaultRenderQueue = meshRendererOfSprite.material.renderQueue;
+        
         if (dialogAssociator != null)
         {
             inkDialogue = dialogAssociator.GetInkFileForCharacter(characterId);
@@ -109,5 +115,15 @@ public class Character : MonoBehaviour, IPointerClickHandler
     public TextAsset GetInkDialogue()
     {
         return inkDialogue;
+    }
+
+    public void SetRendererToBottomChairPosition()
+    {
+        meshRendererOfSprite.material.renderQueue = bottomChairRenderQueue;
+    }
+    
+    public void ResetRendererToBottomChairPosition()
+    {
+        meshRendererOfSprite.material.renderQueue = defaultRenderQueue;
     }
 }

@@ -3,6 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
 public class SpriteWobble : MonoBehaviour
 {
+    
     private Mesh mesh;
 
     public float wobbleSpeed = 0.2f;
@@ -13,8 +14,8 @@ public class SpriteWobble : MonoBehaviour
     public Animator animator;
     public Texture characterTexture;
     private Camera mainCamera;
-    private const string AnimatorSpeed ="speed";
-
+    private const string AnimatorSpeed ="speed"; 
+    private static readonly int Speed = Animator.StringToHash(AnimatorSpeed);
     void Start()
     {
         // Make the quad face the camera
@@ -72,13 +73,20 @@ public class SpriteWobble : MonoBehaviour
     void Update()
     {
         RotateQuadToCamera();
+        SetCharacterRendererPosition();
         WobbleCharacter();
+    }
+
+    private void SetCharacterRendererPosition()
+    {
+        Vector3 newVertices = new Vector3(0, -transform.parent.position.y, 0);
+        transform.localPosition = newVertices;
     }
 
     private void WobbleCharacter()
     {
         // Update the animation speed 
-        animator.SetFloat(AnimatorSpeed, wobbleSpeed);
+        animator.SetFloat(Speed, wobbleSpeed);
         // Zeitbasierte Animation
         vertices[2] = copyVertices[2] + danceAnimation*wobbleFactor;
         vertices[3] = copyVertices[3] + danceAnimation*wobbleFactor;
