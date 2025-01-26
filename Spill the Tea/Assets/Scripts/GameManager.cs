@@ -33,25 +33,12 @@ public class GameManager : MonoBehaviour
         characters = new Dictionary<Character, Table>();
     }
 
-    public void Update()
-    {
-        if (characters.Count >= 16)
-        {
-            return;
-        }
-
-        if (counter.GetWaitingCount == 0)
-        {
-            AddCharacter();
-        }
-    }
-
     public void AddCharacter()
     {
         var character = characterSpawner.SpawnNew();
         if (character == null)
         {
-            Debug.LogError("No more characters to spawn");
+            Debug.LogWarning("No more characters to spawn");
             return;
         }
         characters.Add(character, null);
