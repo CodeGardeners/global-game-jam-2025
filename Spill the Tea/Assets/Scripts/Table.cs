@@ -17,7 +17,7 @@ public class Table : MonoBehaviour
     [SerializeField]
     private List<Sprite> tableSprites;
 
-    
+
     public enum TableType
     {
         blue = 0,
@@ -81,6 +81,7 @@ public class Table : MonoBehaviour
         var referenceDirector = characters.First().GetAudioGuestCharacter().playableDirector;
         bool matches = characters.All(x => x.GetAudioGuestCharacter().playableDirector == referenceDirector);
         PlayDistorted(!matches);
+        Debug.Log("Matches: " + matches);
         if (matches && seatedCharacters.Count == chairs.Count)
         {
             Lock();
