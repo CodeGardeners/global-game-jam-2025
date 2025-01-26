@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -43,6 +44,24 @@ namespace Audio
 
             yield break;
         }
+public static IEnumerator StartFade(AudioMixer audioMixer, string exposedParam, float duration,
+            float targetVolume,float waitForSeconds)
+        {
+            yield return new WaitForSeconds(waitForSeconds);
+            float currentTime = 0;
+            float currentVol;
+            audioMixer.GetFloat(exposedParam, out currentVol);
+            currentVol = Mathf.Pow(10, currentVol / 20);
+            float targetValue = Mathf.Clamp(targetVolume, 0.0001f, 1);
+            while (currentTime < duration)
+            {
+                currentTime += Time.deltaTime;
+                SetGroupVol(audioMixer, exposedParam, currentVol, targetValue, currentTime / duration);
+                yield return null;
+            }
+
+            yield break;
+        }
 
         public static void SetGroupVol(AudioMixer audioMixer, string exposedParam, float oldVol, float newVol, float value)
         {
@@ -59,6 +78,11 @@ namespace Audio
             float debugVol = 666;
             audioMixer.GetFloat(exposedParam, out debugVol);
         }
+        
+        // public static IEnumerator DelayedInvoke(float waitForSecons, Action action){    
+        //     yield return new WaitForSeconds(waitForSecons);
+        //     
+        // }
     }
     
     

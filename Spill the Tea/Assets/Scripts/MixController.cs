@@ -11,6 +11,7 @@ namespace Audio
         [SerializeField] private String masterVolumeParamName = "MasterVolume";
         [SerializeField] private String ambienceVolumeParamName = "AmbienceVolume";
         [SerializeField] private String charactersVolumeParamName = "CharactersVolume";
+        [SerializeField] private float masterFadeInitalDelay = 1f;
         [SerializeField] public float masterFadeInLengthOnStart = 2.0f;
         [SerializeField] public float masterVolume = 0.0f;
         [SerializeField] private CameraMovement _cameraMovement;
@@ -28,7 +29,7 @@ namespace Audio
             float vol;
             audioMixer.GetFloat(masterVolumeParamName, out vol);
             
-            StartCoroutine(FadeMixerGroup.StartFade(audioMixer, masterVolumeParamName, masterFadeInLengthOnStart, masterVolume));
+            StartCoroutine(FadeMixerGroup.StartFade(audioMixer, masterVolumeParamName, masterFadeInLengthOnStart, masterVolume, masterFadeInitalDelay));
         }
 
         // on Scene 

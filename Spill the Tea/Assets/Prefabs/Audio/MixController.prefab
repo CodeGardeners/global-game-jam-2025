@@ -48,7 +48,8 @@ MonoBehaviour:
   masterVolumeParamName: MasterVolume
   ambienceVolumeParamName: AmbienceVolume
   charactersVolumeParamName: CharactersVolume
-  masterFadeInLengthOnStart: 2
+  masterFadeInitalDelay: 1
+  masterFadeInLengthOnStart: 1
   masterVolume: 1
   _cameraMovement: {fileID: 0}
   ambienceMinVol: 0.001
