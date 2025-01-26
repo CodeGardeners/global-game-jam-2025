@@ -14,7 +14,7 @@ namespace Audio
         public PlayableDirector playableDirector;
 
         // while the character sits next to others who are playing the same piece this stays true, else false.
-        private bool playsUndistorted = true;
+        private bool playsDistorted = true;
 
         public float crossfadeLength = 1.0f;
 
@@ -30,9 +30,9 @@ namespace Audio
 
         }
 
-        public void SetUndistortedPlaying(bool undistorted)
+        public void SetDistortedPlaying(bool distorted)
         {
-            playsUndistorted = undistorted;
+            playsDistorted = distorted;
         }
 
         [ContextMenu("DEBUG Crossfade Sources")]

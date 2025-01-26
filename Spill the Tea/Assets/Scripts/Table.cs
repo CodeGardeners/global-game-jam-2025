@@ -80,10 +80,10 @@ public class Table : MonoBehaviour
             Lock();
         }
     }
-    private void PlayDistorted(bool undistorted){
+    private void PlayDistorted(bool distorted){
         foreach (var character in seatedCharacters.Keys)
         {
-            character.transform.GetChild(1).GetComponent<AudioGuestCharacter>().SetUndistortedPlaying(undistorted);
+            character.transform.GetChild(1).GetComponent<AudioGuestCharacter>().SetDistortedPlaying(distorted);
         }
     }
 
