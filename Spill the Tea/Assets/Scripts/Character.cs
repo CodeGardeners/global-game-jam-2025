@@ -24,7 +24,7 @@ public class Character : MonoBehaviour, IPointerClickHandler
 
     private bool isLocked = false;
 
-    private TextAsset inkDialogue;
+    public TextAsset inkDialogue;
 
     public DialogAssociator dialogAssociator;
     public int characterId;
@@ -41,19 +41,6 @@ public class Character : MonoBehaviour, IPointerClickHandler
     {
         // get default renderQueue;
         defaultRenderQueue = meshRendererOfSprite.material.renderQueue;
-        
-        if (dialogAssociator != null)
-        {
-            inkDialogue = dialogAssociator.GetInkFileForCharacter(characterId);
-            if (inkDialogue != null)
-            {
-                Debug.Log($"Loaded dialog for {gameObject.name}: {inkDialogue.name}");
-            }
-        }
-        else
-        {
-            Debug.LogError($"DialogAssociator of {gameObject.name} is not assigned!");
-        }
     }
 
     public void Update()
