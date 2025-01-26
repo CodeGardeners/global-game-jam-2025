@@ -4,13 +4,6 @@ using UnityEngine;
 
 public class CharacterSpawner : MonoBehaviour
 {
-
-    [SerializeField]
-    private Character characterPrefab;
-
-    [SerializeField]
-    private Transform spawnPoint;
-
     private Queue<Character> remainingCharacters = new();
 
     public void Awake(){
