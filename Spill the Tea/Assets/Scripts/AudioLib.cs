@@ -67,16 +67,16 @@ public static IEnumerator StartFade(AudioMixer audioMixer, string exposedParam, 
         {
             float setVol = Mathf.Lerp(oldVol, newVol, value);
             audioMixer.SetFloat(exposedParam, Mathf.Log10(setVol) * 20);
-            float debugVol = 666;
-            audioMixer.GetFloat(exposedParam, out debugVol);
+            // float debugVol = 666;
+            // audioMixer.GetFloat(exposedParam, out debugVol);
         }
         
         public static void SetGroupVol2(AudioMixer audioMixer, string exposedParam, float value)
         {
             
             audioMixer.SetFloat(exposedParam, Mathf.Log10(value) * 20);
-            float debugVol = 666;
-            audioMixer.GetFloat(exposedParam, out debugVol);
+            // float debugVol = 666;
+            // audioMixer.GetFloat(exposedParam, out debugVol);
         }
         
         // public static IEnumerator DelayedInvoke(float waitForSecons, Action action){    
