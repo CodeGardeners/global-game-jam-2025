@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: ecd2042d8fd83f14287a283f23a80cbb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,7 +99,7 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 0.080000006, y: 0.080000006, z: 0.1}
+  m_Extents: {x: 0.11, y: 0.11, z: 0.11}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1
@@ -117,3 +117,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 261d6213b51a69ac4979fe3c83937c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chairSprites:
+  - {fileID: 21300000, guid: ecd2042d8fd83f14287a283f23a80cbb, type: 3}
+  - {fileID: 21300000, guid: 4c84108916f7e0c48b27d364aeef94c8, type: 3}
+  - {fileID: 21300000, guid: 5987292d3bae950438da727790f84272, type: 3}
+  - {fileID: 21300000, guid: e08ae11951ac30949a6dcb2b2b0d6acd, type: 3}

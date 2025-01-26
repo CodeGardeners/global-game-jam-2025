@@ -1,22 +1,47 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using Audio;
 using Unity.VisualScripting;
 using UnityEngine;
 
-[RequireComponent(typeof(Renderer))]
+[RequireComponent(typeof(SpriteRenderer))]
 public class Table : MonoBehaviour
 {
     [SerializeField]
     private List<Chair> chairs;
 
-    private new Renderer renderer;
-
     private Dictionary<Character, Chair> seatedCharacters;
+
+    [SerializeField]
+    private List<Sprite> tableSprites;
+
+    public enum TableType
+    {
+        blue = 0,
+        green = 1,
+        red = 2,
+        yellow = 3
+    }
+
+    [SerializeField]
+    private TableType tableType;
+
 
     public void Awake()
     {
-        renderer = GetComponent<Renderer>();
+        SpriteRenderer renderer = GetComponent<SpriteRenderer>();
         seatedCharacters = new Dictionary<Character, Chair>();
+        renderer.sprite = tableSprites[(int)tableType];
+    }
+
+    public void Start()
+    {
+        foreach (var chair in chairs)
+        {
+            chair.SetTableType(tableType);
+        }
     }
 
     public bool SeatCharacter(Character character)
@@ -24,7 +49,7 @@ public class Table : MonoBehaviour
         var chair = GetNextAvailableChair();
         seatedCharacters.Add(character, chair);
         chair.DisableObstacle();
-        character.SetTarget(chair.transform.position, Character.CharacterState.ToTable, CheckMusic);
+        character.SetTarget(chair.transform.position, Character.CharacterState.ToTable, CheckMusicMatches);
         return seatedCharacters.Count == chairs.Count;
     }
 
@@ -32,37 +57,47 @@ public class Table : MonoBehaviour
     {
         seatedCharacters[character].EnableObstacle();
         seatedCharacters.Remove(character);
+        character.GetAudioGuestCharacter().SetDistortedPlaying(false);
+        CheckMusicMatches();
     }
 
-    public void SetColor(Color color)
+    private void CheckMusicMatches(Character character)
     {
-        renderer.material.color = color;
-        foreach (var chair in chairs)
+        CheckMusicMatches();
+    }
+
+    private void CheckMusicMatches()
+    {
+        var characters = seatedCharacters.Keys;
+        var referenceDirector = characters.First().GetAudioGuestCharacter().playableDirector;
+        bool matches = characters.All(x => x.GetAudioGuestCharacter().playableDirector == referenceDirector);
+        PlayDistorted(!matches);
+        if (matches && seatedCharacters.Count == chairs.Count)
         {
-            chair.SetColor(color);
+            Lock();
         }
     }
 
-    private void CheckMusic()
+    private void PlayDistorted(bool distorted)
     {
-        if (seatedCharacters.Count != chairs.Count)
-        {
-            return;
-        }
-
-        var title = seatedCharacters.Keys.First().Title;
         foreach (var character in seatedCharacters.Keys)
         {
-            if (character.Title != title)
-            {
-                return;
-            }
+            character.GetAudioGuestCharacter().SetDistortedPlaying(distorted);
         }
-        Debug.Log("Hurra");
     }
 
     private Chair GetNextAvailableChair()
     {
         return chairs.Where(x => !seatedCharacters.Values.Contains(x)).FirstOrDefault();
+    }
+
+    private void Lock()
+    {
+        Debug.Log("Locking table " + tableType);
+        foreach (Character character in seatedCharacters.Keys)
+        {
+            character.Lock();
+        }
+        GameManager.Instance.addLockedTable();
     }
 }

@@ -1,16 +1,19 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(Renderer))]
+[RequireComponent(typeof(SpriteRenderer))]
 public class Chair : MonoBehaviour
 {
     private NavMeshObstacle navObstacle;
-    private new Renderer renderer;
+    private new SpriteRenderer renderer;
 
+    [SerializeField]
+    private List<Sprite> chairSprites;
 
     public void Awake()
     {
-        renderer = GetComponent<Renderer>();
+        renderer = GetComponent<SpriteRenderer>();
     }
 
     void Start()
@@ -28,8 +31,8 @@ public class Chair : MonoBehaviour
         navObstacle.enabled = true;
     }
 
-    public void SetColor(Color color)
+    public void SetTableType(Table.TableType type)
     {
-        renderer.material.color = color;
+        renderer.sprite = chairSprites[(int)type];
     }
 }

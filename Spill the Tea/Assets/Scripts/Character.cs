@@ -3,6 +3,8 @@ using UnityEngine.AI;
 using System;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using Audio;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class Character : MonoBehaviour, IPointerClickHandler
@@ -16,14 +18,13 @@ public class Character : MonoBehaviour, IPointerClickHandler
     }
 
     private NavMeshAgent navAgent;
-    private Action navigationEnded;
+    private Action<Character> navigationEnded;
     private CharacterState characterState;
     private bool isNavigating;
 
-    [SerializeField]
-    public int Title { get; private set; }
-    [SerializeField]
-    public int Track { get; private set; }
+    private bool isLocked = false;
+
+    public TextAsset inkDialogue;
 
     public void Awake()
     {
@@ -47,24 +48,37 @@ public class Character : MonoBehaviour, IPointerClickHandler
                         characterState = CharacterState.Table;
                     }
                     isNavigating = false;
-                    navigationEnded?.Invoke();
+                    navigationEnded?.Invoke(this);
                 }
             }
         }
     }
 
-    public void SetTarget(Vector3 target, CharacterState characterState, Action navigationEnded = null)
+    public AudioGuestCharacter GetAudioGuestCharacter(){
+        foreach (Transform child in transform){
+            if (child.gameObject.GetComponent<AudioGuestCharacter>() != null){
+                return child.gameObject.GetComponent<AudioGuestCharacter>();
+            }
+        }
+        return null;
+    }
+
+    public void Lock()
+    {
+        isLocked = true;
+    }
+
+    public void SetTarget(Vector3 target, CharacterState characterState, Action<Character> navigationEnded = null)
     {
         this.characterState = characterState;
         this.navigationEnded = navigationEnded;
         navAgent.SetDestination(target);
         isNavigating = true;
-        Debug.Log("Character " + Title + " " + Track + " is navigating to " + target);
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (characterState is not CharacterState.Table)
+        if (characterState is not CharacterState.Table || isLocked)
         {
             return;
         }

@@ -36,8 +36,6 @@ public class Counter : MonoBehaviour
         for (int i = 0; i < buttons.Count; i++)
         {
             var button = buttons[i];
-            int colorIndex = i % GameManager.Colors.Length;
-            button.GetComponent<Image>().color = GameManager.Colors[colorIndex];
             var j = i; // avoid closure problem
             button.onClick.AddListener(() => OnClick(j));
         }
@@ -92,9 +90,10 @@ public class Counter : MonoBehaviour
         }
     }
 
-    private void CounterReached(){
+    private void CounterReached(Character character){
         // Start Dialog when counter reached
+        
         // TODO set ui active when DialoagueManager has DialogueFinished = true
-        counterToDialogue.EnterDialoguemode(inkJSON); // TODO get Dialogue from Character at Counter
+        counterToDialogue.EnterDialoguemode(character.inkDialogue); // TODO get Dialogue from Character at Counter
     }
 }
