@@ -5,16 +5,20 @@ public class Menu : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public GameObject MainMenu;
     public GameObject StoryMenu;
+    public GameObject TutorialMenu;
 
     public void Start()
     {
         MainMenu.SetActive(true);
         StoryMenu.SetActive(false);
+        TutorialMenu.SetActive(false);
     }
 
     public void StartButton()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("MainScene");
+        MainMenu.SetActive(false);
+        StoryMenu.SetActive(false);
+        TutorialMenu.SetActive(true);
     }
 
     public void StoryButton()
@@ -32,5 +36,10 @@ public class Menu : MonoBehaviour
     {
         MainMenu.SetActive(true);
         StoryMenu.SetActive(false);
+    }
+
+    public void SkipButton()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainScene");
     }
 }
