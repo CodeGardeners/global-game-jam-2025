@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class CharacterSpawner : MonoBehaviour
 {
+    [SerializeField]
+    private List<Texture2D> characterTextures;
+
     private Queue<Character> remainingCharacters = new();
 
     public void Awake(){
@@ -14,6 +17,12 @@ public class CharacterSpawner : MonoBehaviour
             if(!transform.GetChild(i).TryGetComponent<Character>(out var character))
             {
                 continue;
+            }
+            SpriteWobble wobble = character.GetComponentInChildren<SpriteWobble>(true);
+            if (characterTextures.Count != 0){
+                wobble.characterTexture = characterTextures[character.characterId % characterTextures.Count];
+            }else {
+                Debug.LogWarning("No character textures found");
             }
             remainingCharacters.Enqueue(character);
         }

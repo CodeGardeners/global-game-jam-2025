@@ -3218,6 +3218,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98dd06634ee7fff429cc4379ba97c5f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterTextures:
+  - {fileID: 2800000, guid: bb562b4ed325c0a43a63c05df8b60530, type: 3}
+  - {fileID: 2800000, guid: c64a503e875cf1415a364b7a5108c82b, type: 3}
+  - {fileID: 2800000, guid: ce4746c7d1a4ab694aeb3129bd809444, type: 3}
+  - {fileID: 2800000, guid: aa7d5db1f6c9b7f5abfe29053aa319c5, type: 3}
+  - {fileID: 2800000, guid: c1edc49eebfb75a61b26f7daf511ee87, type: 3}
+  - {fileID: 2800000, guid: 06c9dd7fa6760a025a5ea96708666fe7, type: 3}
+  - {fileID: 2800000, guid: 2abc3d5654b6b6640ab1f77e9a3a07a2, type: 3}
 --- !u!4 &1360932294
 Transform:
   m_ObjectHideFlags: 0
