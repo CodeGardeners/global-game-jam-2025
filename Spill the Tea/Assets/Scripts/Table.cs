@@ -57,6 +57,7 @@ public class Table : MonoBehaviour
     {
         seatedCharacters[character].EnableObstacle();
         seatedCharacters.Remove(character);
+        character.GetAudioGuestCharacter().SetDistortedPlaying(false);
         CheckMusicMatches();
     }
 
