@@ -1,7 +1,2 @@
-Ugh, why does everyone think it's easy to teach the piano?
-    We are only two teachers for way to many kids! 
-    
-Sorry, I'm just stressed out. You can call me Helena. I'm
-    here to relax after a long day and just want to have 
-    a nice conversation.
-
+Ugh, why does everyone think it is easy to teach the piano? Sorry, that was rude.
+My name is Iris and I'm here to relax and chat with someone who actually appreciates music.

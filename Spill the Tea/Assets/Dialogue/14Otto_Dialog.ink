@@ -1,8 +1,2 @@
-Hello everyone. I'm Otto, founder and guru of 
-    'Otto's Omnipresent Orthopedics & Oils'. We focus on
-    creating a healthy and cleansing environment for 
-    
-everyone! A few memberships are still available, if 
-    anyone is interested? Let's all strive for a 
-    trule harmonious atmosphere together!
-
+You can call me Gregory. I'm on a mission to try every food spot in town. The bubble tea here is really good!
+But nothing will ever come close to the food I had at that restaurant downtown, the 'Soap Bubble'. I really adore that place.

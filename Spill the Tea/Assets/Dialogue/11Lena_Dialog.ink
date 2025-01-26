@@ -1,7 +1,2 @@
-Hello there, hi, I'm Lena. The only human that calculates
-    as a hobby. I love doing math! My aunt is a teacher and
-    she had the idea to play math games with her students.
-    
-I hope I can assist her prepare that lesson, I wanna be 
-    closer to her.
-
+VACATION!. Hello there, hi, I'm Lena. I'm so excited to get a break from work, but I definitely need a better work-life-balance.
+Don you know someone who could help?

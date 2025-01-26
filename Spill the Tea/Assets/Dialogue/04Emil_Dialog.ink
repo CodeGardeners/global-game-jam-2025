@@ -1,6 +1,2 @@
-Hi, I'm Emil. Yesterday I had my very first piano lesson!
-    It was amazing. I'm learning 'Happy Birthday' and I really 
-    hope I can learn it by next month for my mom's 
-    
-birthday. The usual, please!
-
+Hi, I'm Janet. Everytime I come here by train, I hear someone play the piano. It sounds absolutely lovely!
+I'm thinking about learning an instrument as well. Maybe then we could play together?
