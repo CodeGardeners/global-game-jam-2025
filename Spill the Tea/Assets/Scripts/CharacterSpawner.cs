@@ -25,6 +25,8 @@ public class CharacterSpawner : MonoBehaviour
         }
         Character character = remainingCharacters.Dequeue();
         character.gameObject.SetActive(true);
+        var director = character.transform.GetChild(1).GetComponent<Audio.AudioGuestCharacter>().playableDirector;
+        Debug.Log("Spawn Character of " + director.name);
         return character;
     }
 }
