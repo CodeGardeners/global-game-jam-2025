@@ -20,7 +20,7 @@ public class Counter : MonoBehaviour
 
     [SerializeField]
     private TextAsset inkJSON;
-    
+
     [SerializeField]
     private UnityEvent onConterReached;
 
@@ -50,7 +50,7 @@ public class Counter : MonoBehaviour
         character.SetTarget(counterPosition.position + waitingCharacters.Count * offset, Character.CharacterState.ToCounter, waitingCharacters.Count == 0 ? CounterReached : null);
         waitingCharacters.Enqueue(character);
     }
-    
+
     void Update()
     {
         if (counterToDialogue.GetDialogueFinished())
@@ -66,13 +66,9 @@ public class Counter : MonoBehaviour
     public void OnClick(int num)
     {
         ui.SetActive(false);
-        counterToDialogue.ResetDialogue(); // Resets Dialogue when 
+        counterToDialogue.ResetDialogue();
         GameManager.Instance.ToTable(waitingCharacters.Dequeue(), num);
-
-        if (waitingCharacters.Count != 0)
-        {
-            ResetPosition();
-        }
+        CallNextCharacterFromQueue();
     }
 
     public void EnableButton(int i)
@@ -85,25 +81,28 @@ public class Counter : MonoBehaviour
         buttons[i].enabled = false;
     }
 
-    private void ResetPosition()
+    private void CallNextCharacterFromQueue()
     {
-        var array = waitingCharacters.ToArray();
-        for (int i = array.Length - 1; i >= 0; i--)
+        if (waitingCharacters.Count != 0)
         {
-            array[i].SetTarget(counterPosition.position + i * offset, Character.CharacterState.ToCounter, i == 0 ? CounterReached : null);
+            var array = waitingCharacters.ToArray();
+            for (int i = array.Length - 1; i >= 0; i--)
+            {
+                array[i].SetTarget(counterPosition.position + i * offset, Character.CharacterState.ToCounter, i == 0 ? CounterReached : null);
+            }
         }
     }
 
     private void CounterReached(Character character){
         // Start Dialog when counter reached
-        
+
         // invoke to e.g. play a sound
         onConterReached.Invoke();
-        
+
         // TODO set ui active when DialoagueManager has DialogueFinished = true
         counterToDialogue.EnterDialoguemode(character.GetInkDialogue()); // TODO get Dialogue from Character at Counter
-        
-        
-        
+
+
+
     }
 }
