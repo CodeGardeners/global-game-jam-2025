@@ -13,7 +13,7 @@ namespace Audio
         private bool seated = false;
         public PlayableDirector playableDirector;
 
-        // while the character sits next to others who are playing the same piece this stays true, else false.
+        // while the character sits next to others who are playing the same piece this stays false, else true.
         private bool playsDistorted = true;
 
         public float crossfadeLength = 1.0f;
