@@ -1,7 +1,2 @@
-Hello, my name is Constance. I'm in town for the concert
-    of a french composer. It's my first time being here and
-    I have never tried bubble tea before in my life. 
-
-Can you recommend me something tasty?
-
-
+Hello, my name is Emil, biggest fan of good music! I am in town for the concert of a french singer.
+He released a new song but there are some words I don't understand. Do you know someone who speaks french?

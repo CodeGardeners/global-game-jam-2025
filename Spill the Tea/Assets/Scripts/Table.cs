@@ -17,6 +17,7 @@ public class Table : MonoBehaviour
     [SerializeField]
     private List<Sprite> tableSprites;
 
+    
     public enum TableType
     {
         blue = 0,
@@ -47,6 +48,10 @@ public class Table : MonoBehaviour
     public bool SeatCharacter(Character character)
     {
         var chair = GetNextAvailableChair();
+        if (chair.IsBottomChair())
+        {
+            character.SetRendererToBottomChairPosition();
+        }
         seatedCharacters.Add(character, chair);
         chair.DisableObstacle();
         character.SetTarget(chair.transform.position, Character.CharacterState.ToTable, CheckMusicMatches);
@@ -55,6 +60,7 @@ public class Table : MonoBehaviour
 
     public void UnseatCharacter(Character character)
     {
+        character.ResetRendererToBottomChairPosition();
         seatedCharacters[character].EnableObstacle();
         seatedCharacters.Remove(character);
         character.GetAudioGuestCharacter().SetDistortedPlaying(false);

@@ -1,7 +1,2 @@
-Hi...I'm Janet. I need to learn for my math exam next
-    week. But how do I know that I've learned enough?
-    Uff, math was always my weak point. What I need now
-    
-is a person that can understand my struggles and help
-    me find some motivation for next week.
-
+My name is Mattis and I'm the most stressed out person in the world. I'm a doctor, so that doesn't help.
+How can I slow down my everday life to make it less draining? Can you recommend me a helping bubble?
