@@ -1805,6 +1805,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1649249287798037916, guid: ee6cc63d23dfbe94c98c767319ed800f, type: 3}
+      propertyPath: masterFadeInLengthOnStart
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 3491011318834866575, guid: ee6cc63d23dfbe94c98c767319ed800f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.890244
